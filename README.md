@@ -1,6 +1,6 @@
 # Fast Diet picker
 
-This is a learning exercise for me to start using Python, and now Django for the site
+This is a learning exercise for me to start using ~~Python, and now Django~~ React for the site
 
 What I plan to do is have a database of foods, which I have already compiled with the option to search the database from the webpage with another option to verify entries and add entries.
 
