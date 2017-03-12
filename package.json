@@ -1,5 +1,5 @@
 {
-  "name": "calorie-counter",
+  "name": "c-counter",
   "version": "0.0.1",
   "description": "Pick foods to a calorie budget",
   "devDependencies": {
