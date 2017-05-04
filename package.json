@@ -3,23 +3,23 @@
   "version": "0.0.1",
   "description": "Pick foods to a calorie budget",
   "devDependencies": {
-    "autoprefixer-stylus": "0.10.0",
+    "autoprefixer-stylus": "0.13.0",
     "babel-eslint": "^7.1.1",
-    "concurrently": "3.0.0",
+    "concurrently": "3.4.0",
     "eslint": "^3.12.2",
     "eslint-plugin-flowtype": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.8.0",
     "react-scripts": "0.12.2",
     "stylus": "0.54.5"
   },
   "dependencies": {
-    "history": "4.2.0",
-    "re-base": "2.2.0",
-    "react": "15.3.2",
-    "react-addons-css-transition-group": "15.3.2",
-    "react-dom": "15.3.2",
-    "react-router": "4.0.0-alpha.4"
+    "history": "4.6.1",
+    "re-base": "2.7.0",
+    "react": "15.5.4",
+    "react-addons-css-transition-group": "15.5.2",
+    "react-dom": "15.5.4",
+    "react-router": "4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
