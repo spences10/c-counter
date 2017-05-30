@@ -20,7 +20,7 @@
     "react-addons-css-transition-group": "15.5.2",
     "react-dom": "15.5.4",
     "react-router": "4.1.1",
-    "snyk": "^1.31.0"
+    "snyk": "^1.31.1"
   },
   "scripts": {
     "start": "react-scripts start",
