@@ -8,7 +8,7 @@
     "concurrently": "3.5.0",
     "eslint": "^4.1.1",
     "eslint-plugin-flowtype": "^2.34.0",
-    "eslint-plugin-jsx-a11y": "6.0.0",
+    "eslint-plugin-jsx-a11y": "6.0.1",
     "eslint-plugin-react": "^7.1.0",
     "react-scripts": "1.0.8",
     "stylus": "0.54.5"
