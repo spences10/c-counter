@@ -16,8 +16,8 @@
   "dependencies": {
     "re-base": "3.0.3",
     "history": "4.7.2",
+    "react-addons-css-transition-group": "15.6.2",
     "react": "15.6.2",
-    "react-addons-css-transition-group": "15.6.0",
     "react-dom": "15.6.2",
     "react-router": "4.2.0",
     "snyk": "^1.41.1"
