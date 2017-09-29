@@ -4,7 +4,7 @@
   "description": "Pick foods to a calorie budget",
   "devDependencies": {
     "autoprefixer-stylus": "0.14.0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^8.0.1",
     "concurrently": "3.5.0",
     "eslint": "^4.7.2",
     "eslint-plugin-flowtype": "^2.37.0",
