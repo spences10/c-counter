@@ -5,7 +5,7 @@
   "devDependencies": {
     "autoprefixer-stylus": "0.14.0",
     "babel-eslint": "^8.0.2",
-    "concurrently": "3.5.0",
+    "concurrently": "3.5.1",
     "eslint": "^4.11.0",
     "eslint-plugin-flowtype": "^2.38.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
