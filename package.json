@@ -20,7 +20,7 @@
     "react-dom": "16.2.0",
     "react": "16.2.0",
     "react-router": "4.2.0",
-    "snyk": "^1.52.1"
+    "snyk": "^1.53.0"
   },
   "scripts": {
     "start": "react-scripts start",
