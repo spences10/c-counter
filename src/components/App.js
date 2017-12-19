@@ -5,6 +5,7 @@ import Quote from './Quote'
 import Notice from './Notice'
 
 import Tickers from './Tickers'
+import Cryptocurrency from './Cryptocurrency'
 
 const App = () => (
   <div>
