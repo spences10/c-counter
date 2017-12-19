@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const Quote = styled.blockquote`
   color: ${props => props.theme.primary.dark};
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  font-family: Open Sans;
   margin: 0.75rem 0 0;
   font-style: italic;
 `
