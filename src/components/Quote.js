@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Quote = styled.blockquote`
-  color: ${props => props.theme.primary};
+  color: ${props => props.theme.primary.dark};
   font-size: 1.5rem;
   margin: 0.75rem 0 0;
   font-style: italic;
@@ -11,7 +11,7 @@ const Quote = styled.blockquote`
 const Separator = styled.hr`
   height: 5px;
   width: 40px;
-  background: ${props => props.theme.primary};
+  background: ${props => props.theme.primary.dark};
   margin-left: 0;
   border: none;
 `

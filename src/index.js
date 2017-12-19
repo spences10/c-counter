@@ -1,31 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { ThemeProvider, injectGlobal } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 import registerServiceWorker from './registerServiceWorker'
 
 import App from './components/App'
-
-injectGlobal`
-  body {
-    margin: 0;
-    padding: 2rem;
-    font-family: -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-`
-
-const theme = {
-  primary: '#a04ed9'
-}
+import { theme } from './theme/globalStyle'
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
