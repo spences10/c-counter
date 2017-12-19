@@ -73,9 +73,6 @@ class Tickers extends Component {
     return (
       <TickersContainer>
         <TickersList>{tickers}</TickersList>
-        <p>
-          Information updated every 10 seconds courtesy of coinmarketcap.com
-        </p>
       </TickersContainer>
     )
   }

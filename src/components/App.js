@@ -9,13 +9,12 @@ import Cryptocurrency from './Cryptocurrency'
 
 const App = () => (
   <div>
-    <Button>Hey, click me!</Button>
-    <Notice>
-      Just letting you know... We think you're awesome and we're super happy to
-      have you as a customer!
-    </Notice>
-    <Quote>Wooooaa, this is sooo so cool my friends!!</Quote>
+    <Quote>Cryptocurrency tickers</Quote>
     <Tickers />
+    <Notice>
+      Information updated every 10 seconds courtesy of coinmarketcap.com
+    </Notice>
+    <Button>Hey, click me!</Button>
   </div>
 )
 
