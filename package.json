@@ -1,55 +1,35 @@
 {
   "name": "c-counter",
-  "version": "0.0.1",
-  "description": "Pick foods to a calorie budget",
-  "devDependencies": {
-    "autoprefixer-stylus": "0.14.0",
-    "babel-eslint": "^8.0.3",
-    "concurrently": "3.5.1",
-    "eslint": "^4.13.1",
-    "eslint-plugin-flowtype": "^2.40.1",
-    "eslint-plugin-jsx-a11y": "6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "react-scripts": "1.0.17",
-    "stylus": "0.54.5"
-  },
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "re-base": "3.2.1",
-    "history": "4.7.2",
-    "react-addons-css-transition-group": "15.6.2",
-    "react-dom": "16.2.0",
-    "react": "16.2.0",
-    "react-router": "4.2.0",
-    "snyk": "^1.61.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
+  },
+  "devDependencies": {
+    "prettier": "^1.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "watch": "concurrently --names \"webpack, stylus\" --prefix name \"npm run start\" \"npm run styles:watch\"",
     "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
     "eject": "react-scripts eject",
-    "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
-    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "pre-commit": "npm run format"
   },
-  "eslintConfig": {
-    "extends": "./node_modules/react-scripts/.eslintrc"
-  },
+  "pre-commit": "npm run format",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spences10/fast-diet-picker.git"
+    "url": "git+https://github.com/spences10/c-counter.git"
   },
-  "keywords": [
-    "diet",
-    "calories",
-    "picker",
-    "planner"
-  ],
-  "author": "Scott Spence",
+  "keywords": [],
+  "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spences10/fast-diet-picker/issues"
+    "url": "https://github.com/spences10/c-counter/issues"
   },
-  "homepage": "https://github.com/spences10/fast-diet-picker#readme",
-  "snyk": true
+  "homepage": "https://github.com/spences10/c-counter#readme",
+  "description": ""
 }
