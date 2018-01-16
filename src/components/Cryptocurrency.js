@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const CryptocurrencyLi = styled.li`
@@ -41,7 +42,7 @@ class Cryptocurrency extends React.Component {
       percent_change_7d
     } = this.props.data
     return (
-      <CryptocurrencyLi>
+      <CryptocurrencyLi key={id}>
         <CryptocurrencyName>
           {name} ({symbol})
         </CryptocurrencyName>
@@ -52,6 +53,17 @@ class Cryptocurrency extends React.Component {
       </CryptocurrencyLi>
     )
   }
+}
+
+Cryptocurrency.propTypes = {
+  data: PropTypes.array,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  symbol: PropTypes.string,
+  price_usd: PropTypes.number,
+  percent_change_1h: PropTypes.number,
+  percent_change_24h: PropTypes.number,
+  percent_change_7d: PropTypes.number
 }
 
 export default Cryptocurrency
