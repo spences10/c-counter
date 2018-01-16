@@ -1,0 +1,30 @@
+sudo: false
+
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  email: false
+
+node_js:
+  - '9'
+
+before_script:
+  - npm prune
+
+script:
+  - npm i -g now@canary
+  - npm run deploy:now
+
+after_script: 
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi 
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run release; fi
+  - npm run cleanup
+
+env:
+  global:
+    secure: X58wy3oBzqwtSDmH/z2B42l3WpQEbTxnBGwRax14/zXkFKB0P0+FZy7L+in76Pon1yvnbGgiFo5eOrJ0azu5sU5GEAeN1bXwNhqwhzfRBVTTCMMqbIAsqD7YQi4fyFY5ytvPa2RVNQKC7Zsd4slwbZwgqHbar7zNpw+mUxZC+QlfiaiZGXDkNj7L8bE25veIdf8KV7FQwE5VRSSbBh1BC2Yl4GDtqofi3eYiIilo9r6DSRo4q0L9nfVdzsuMlzAa9Qls6dtvQG+pBfRzW1amAF2RU49kTgw6pXuCgI3dAsaou2/3wIku8rJXfi2nFhdd9g/OVTO1hU9UAP/7qHhZltG32lTm8Tyaa9hjUwfa+mZh2uuIIsJ1znHkHCRGTLTbJUUGTQJvoL2po/wsYetSy08Ujx1YyKJLKXgslcZHMxpMlO2DW6gqNKvAo23VWvH7slmc327jIkmtJSrhRM7zrv7y0pa2hdbPQHboCEH4lGnree8pifPmzUOcK8/u0V89GyPcFjDynAFHUaGkkskJeaU3tpT+0951PgCbFJAGy4hPS7ZqOKbxyPr3ardqR81LbksFRh5NOTPvHroaULSoPJF/Jpg13UWtc8QfP/EUdzdKKK9IIcNQsBYx2G21IINCUmMebG/u6e+8KA8OjzuDKabwdLZO53sHhpBHha65FKc=
