@@ -24,7 +24,8 @@
     "clean": "rm -rf build/ && rm -rf c-counter/",
     "deploy:now": "npm run clean && npm run build && now c-counter/",
     "alias:dev": "now alias c-counter.now.sh --token $NOW_TOKEN",
-    "alias:prod": "now alias c-counter.scottspence.me --token $NOW_TOKEN"
+    "alias:prod": "now alias c-counter.scottspence.me --token $NOW_TOKEN",
+    "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN"
   },
   "pre-commit": "npm run format",
   "main": "index.js",
