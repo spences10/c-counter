@@ -24,7 +24,7 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "clean": "rm -rf build/ && rm -rf c-counter/",
-    "deploy:now": "now c-counter/",
+    "deploy:now": "now c-counter/ --token $NOW_TOKEN",
     "alias:dev": "now alias c-counter.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias c-counter.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN"
