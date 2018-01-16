@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import Button from './Button'
+// import Button from './Button'
 import Quote from './Quote'
 import Notice from './Notice'
 
 import Tickers from './Tickers'
-import Cryptocurrency from './Cryptocurrency'
+// import Cryptocurrency from './Cryptocurrency'
 
 const App = () => (
   <div>
