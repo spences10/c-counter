@@ -17,6 +17,14 @@
     {
       "files": ".eslintrc.json",
       "options": { "parser": "json" }
+    },
+    {
+      "files": ".release-it.json",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "package.json",
+      "options": { "parser": "json" }
     }
   ]
 }
