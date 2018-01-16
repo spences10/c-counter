@@ -17,6 +17,7 @@ before_script:
 
 script:
   - npm i -g now@canary
+  - npm run build
   - npm run deploy:now
 
 after_script: 
