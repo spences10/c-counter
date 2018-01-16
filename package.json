@@ -14,12 +14,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build":
+      "npm run clean && react-scripts build && mv build c-counter",
     "test": "react-scripts test --env=jsdom",
     "format":
       "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
     "eject": "react-scripts eject",
-    "pre-commit": "npm run format"
+    "pre-commit": "npm run format",
+    "clean": "rm -rf build/ && rm -rf c-counter/",
+    "deploy:now": "npm run clean && npm run build && now c-counter/"
   },
   "pre-commit": "npm run format",
   "main": "index.js",
@@ -34,6 +37,6 @@
   "bugs": {
     "url": "https://github.com/spences10/c-counter/issues"
   },
-  "homepage": "https://github.com/spences10/c-counter#readme",
+  "homepage": "https://c-counter.now.sh",
   "description": ""
 }
