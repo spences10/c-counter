@@ -12,9 +12,10 @@ const App = () => (
     <Quote>Cryptocurrency tickers</Quote>
     <Tickers />
     <Notice>
-      Information updated every 10 seconds courtesy of coinmarketcap.com
+      Information updated every 10 seconds courtesy of
+      coinmarketcap.com
     </Notice>
-    <Button>Hey, click me!</Button>
+    {/* <Button>Hey, click me!</Button> */}
   </div>
 )
 
