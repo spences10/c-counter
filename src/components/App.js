@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     fetchCryptocurrencyData(
-      'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=5'
+      'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
     ).then(result => {
       this.setState({ data: result.data })
     })
