@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const CardWrapper = styled.div`
-  border: 1px dashed ${props => props.theme.black};
+  border: 1px solid ${props => props.theme.black};
+  border-radius: 4px;
 `
 
 const Cryptocurrency = props => {
