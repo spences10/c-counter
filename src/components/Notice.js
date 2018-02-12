@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledNotice = styled.div`
-  grid-area: ${props => props.area};
+  grid-area: f;
   border: solid 3px ${props => props.theme.dark};
   background: #f7f7f7;
   padding: 1rem;

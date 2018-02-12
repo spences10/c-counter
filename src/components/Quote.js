@@ -18,7 +18,7 @@ const Separator = styled.hr`
 `
 
 const Wrapper = styled.div`
-  grid-area: ${props => props.area};
+  grid-area: h;
   margin: 2rem 0;
 `
 
