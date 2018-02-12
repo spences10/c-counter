@@ -14,7 +14,15 @@ const CardWrapper = styled.div`
     '7 . .';
 
   border: 1px solid ${props => props.theme.black};
-  border-radius: 4px;
+
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  &:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  background-color: ${props => props.theme.white};
 `
 
 const Name = styled.h1`
