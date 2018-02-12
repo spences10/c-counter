@@ -16,16 +16,16 @@ const PageContainer = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    'h h h h h h h h h h h h'
-    'c c c c c c c c c c c c'
-    'f f f f f f f f f f f f';
+    '. . h h h h h h h h . .'
+    '. . c c c c c c c c . .'
+    '. . f f f f f f f f . .';
 `
 
 const CryptoWrapper = styled.div`
   display: grid;
   grid-area: c;
   grid-gap: 20px;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
 `
 
@@ -47,17 +47,17 @@ class App extends React.Component {
   render() {
     return (
       <PageContainer>
-        <Quote area={'h'}>Cryptocurrency tickers</Quote>
+        <Quote>Cryptocurrency tickers</Quote>
         <CryptoWrapper>
           {this.state.data.map((items, index) => {
-            console.log('====================')
-            console.log(items)
-            console.log('====================')
+            // console.log('====================')
+            // console.log(items)
+            // console.log('====================')
             return <Cryptocurrency key={index} {...items} />
           })}
         </CryptoWrapper>
         {/* <Tickers /> */}
-        <Notice area={'f'}>
+        <Notice>
           Information updated every 10 seconds courtesy of
           coinmarketcap.com
         </Notice>
