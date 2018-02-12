@@ -43,6 +43,14 @@ class App extends React.Component {
     ).then(result => {
       this.setState({ data: result.data })
     })
+
+    this.interval = setInterval(
+      () =>
+        fetchCryptocurrencyData(
+          'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
+        ),
+      10 * 1000
+    )
   }
   render() {
     return (
