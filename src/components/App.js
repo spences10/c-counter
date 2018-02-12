@@ -5,7 +5,7 @@ import Quote from './Quote'
 import Notice from './Notice'
 
 import Tickers from './Tickers'
-// import Cryptocurrency from './Cryptocurrency'
+import Cryptocurrency from './Cryptocurrency'
 
 import { fetchCryptocurrencyData } from '../util/helpers'
 
@@ -27,11 +27,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {this.state.data.map(items => {
+        {this.state.data.map((items, index) => {
           console.log('====================')
           console.log(items)
           console.log('====================')
-          return <p key={items.id}>{items.id}</p>
+          return <Cryptocurrency key={index} {...items} />
         })}
         {/* <Quote>Cryptocurrency tickers</Quote>
         <Tickers />

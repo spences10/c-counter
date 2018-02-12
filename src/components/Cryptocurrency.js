@@ -2,68 +2,47 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const CryptocurrencyLi = styled.li`
-  padding: 1rem 2rem 2rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  min-width: 9rem;
-  border: solid 1px rgba(0, 0, 0, 0.05);
-  p {
-    color: rgba(0, 0, 0, 0.75);
-  }
+const CardWrapper = styled.div`
+  border: 1px dashed ${props => props.theme.black};
 `
 
-const CryptocurrencyName = styled.p`
-  font-size: 1.25rem;
-`
+const Cryptocurrency = props => {
+  const {
+    id,
+    name,
+    symbol,
+    price_usd,
+    price_gbp,
+    percent_change_1h,
+    percent_change_24h,
+    percent_change_7d
+  } = props
 
-// .bitcoin {
-//   background-color: #fbe2c3;
-//   border-bottom: solid 4px #f7931a;
-// }
-// .ethereum {
-//   background-color: #c2c9ff;
-//   border-bottom: solid 4px #454a75;
-// }
-// .litecoin {
-//   background-color: #ececec;
-//   border-bottom: solid 4px #bebebe;
-// }
+  console.log('====================')
+  console.log(props)
+  console.log('====================')
 
-class Cryptocurrency extends React.Component {
-  render() {
-    let {
-      id,
-      name,
-      symbol,
-      price_usd,
-      percent_change_1h,
-      percent_change_24h,
-      percent_change_7d
-    } = this.props.data
-    return (
-      <CryptocurrencyLi key={id}>
-        <CryptocurrencyName>
-          {name} ({symbol})
-        </CryptocurrencyName>
-        <h1>${(+price_usd).toFixed(2)}</h1>
-        <p>{percent_change_1h}% 1hr</p>
-        <p>{percent_change_24h}% 24hrs</p>
-        <p>{percent_change_7d}% 7days</p>
-      </CryptocurrencyLi>
-    )
-  }
-}
-
-Cryptocurrency.propTypes = {
-  data: PropTypes.array,
-  id: PropTypes.number,
-  name: PropTypes.string,
-  symbol: PropTypes.string,
-  price_usd: PropTypes.number,
-  percent_change_1h: PropTypes.number,
-  percent_change_24h: PropTypes.number,
-  percent_change_7d: PropTypes.number
+  return (
+    <CardWrapper>
+      <p>{id}</p>
+      <p>
+        {name} {symbol}
+      </p>
+      <p>{parseFloat(price_usd).toFixed(2)}</p>
+      <p>{parseFloat(price_gbp).toFixed(2)}</p>
+    </CardWrapper>
+  )
 }
 
 export default Cryptocurrency
+
+Cryptocurrency.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  symbol: PropTypes.string,
+  price_usd: PropTypes.string,
+  price_gbp: PropTypes.string,
+  percent_change_1h: PropTypes.string,
+  percent_change_24h: PropTypes.string,
+  percent_change_7d: PropTypes.string
+}
