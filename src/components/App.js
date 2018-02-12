@@ -25,7 +25,7 @@ const CryptoWrapper = styled.div`
   display: grid;
   grid-area: c;
   grid-gap: 20px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
 `
 
@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     fetchCryptocurrencyData(
-      'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
+      'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=5'
     ).then(result => {
       this.setState({ data: result.data })
     })
@@ -50,9 +50,9 @@ class App extends React.Component {
         <Quote>Cryptocurrency tickers</Quote>
         <CryptoWrapper>
           {this.state.data.map((items, index) => {
-            // console.log('====================')
-            // console.log(items)
-            // console.log('====================')
+            console.log('====================')
+            console.log(items)
+            console.log('====================')
             return <Cryptocurrency key={index} {...items} />
           })}
         </CryptoWrapper>
