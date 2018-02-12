@@ -1,13 +1,33 @@
 import React from 'react'
+import styled from 'styled-components'
 
 // import Button from './Button'
 import Quote from './Quote'
 import Notice from './Notice'
 
-import Tickers from './Tickers'
+// import Tickers from './Tickers'
 import Cryptocurrency from './Cryptocurrency'
 
 import { fetchCryptocurrencyData } from '../util/helpers'
+
+const PageContainer = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    'h h h h h h h h h h h h'
+    'c c c c c c c c c c c c'
+    'f f f f f f f f f f f f';
+`
+
+const CryptoWrapper = styled.div`
+  display: grid;
+  grid-area: c;
+  grid-gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+`
 
 class App extends React.Component {
   constructor() {
@@ -26,21 +46,23 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.state.data.map((items, index) => {
-          console.log('====================')
-          console.log(items)
-          console.log('====================')
-          return <Cryptocurrency key={index} {...items} />
-        })}
-        {/* <Quote>Cryptocurrency tickers</Quote>
-        <Tickers />
-        <Notice>
+      <PageContainer>
+        <Quote area={'h'}>Cryptocurrency tickers</Quote>
+        <CryptoWrapper>
+          {this.state.data.map((items, index) => {
+            console.log('====================')
+            console.log(items)
+            console.log('====================')
+            return <Cryptocurrency key={index} {...items} />
+          })}
+        </CryptoWrapper>
+        {/* <Tickers /> */}
+        <Notice area={'f'}>
           Information updated every 10 seconds courtesy of
           coinmarketcap.com
-        </Notice> */}
+        </Notice>
         {/* <Button>Hey, click me!</Button> */}
-      </div>
+      </PageContainer>
     )
   }
 }
