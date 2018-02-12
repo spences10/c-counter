@@ -10,3 +10,5 @@ Built with:
 * styled-components
 * react
 * axios
+
+Uses the https://coinmarketcap.com Ticker endpoint.
