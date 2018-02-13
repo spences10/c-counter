@@ -42,9 +42,9 @@ const Symbol = styled.p`
 `
 
 const Price = styled.span`
-  margin: 0.5rem;
-  padding: 0.5rem;
-  grid-area: ${props => props.area};
+  grid-area: p;
+  margin: 0rem;
+  padding: 0rem;
 
   font-size: 4rem;
   font-weight: bold;
@@ -54,6 +54,32 @@ const PctChange = styled.p`
   margin: 0.5rem;
   padding: 0.5rem;
   grid-area: ${props => props.area};
+`
+
+const Cur = styled.span`
+  grid-area: c;
+  margin: 0.6rem 0rem 0rem 1rem;
+  padding: 0rem 0rem 0rem 0rem;
+  font-size: 2rem;
+`
+
+const Dec = styled.span`
+  grid-area: d;
+  margin: 0.6rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  font-size: 2rem;
+`
+
+const PriceWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-rows: auto;
+  grid-template-areas: 'c p d';
+  grid-area: ${props => props.area};
+
+  justify-content: start;
+  align-items: start;
+  color: ${props => props.theme.dark};
 `
 
 const Cryptocurrency = props => {
@@ -73,15 +99,18 @@ const Cryptocurrency = props => {
 
   return (
     <CardWrapper>
-      <Name>{name}</Name> <Symbol>({symbol})</Symbol>
-      <Price area={'g'}>
-        {numberParts(price_usd)[0]}
-        {numberParts(price_usd)[1]}
-      </Price>
-      <Price area={'u'}>
-        {numberParts(price_usd)[0]}
-        {numberParts(price_usd)[1]}
-      </Price>
+      <Name>{name}</Name>
+      <Symbol>({symbol})</Symbol>
+      <PriceWrapper area={'g'}>
+        <Cur>£</Cur>
+        <Price>{numberParts(price_gbp)[0]}</Price>
+        <Dec>{numberParts(price_gbp)[1]}</Dec>
+      </PriceWrapper>
+      <PriceWrapper area={'u'}>
+        <Cur>$</Cur>
+        <Price>{numberParts(price_usd)[0]}</Price>
+        <Dec>{numberParts(price_usd)[1]}</Dec>
+      </PriceWrapper>
       <PctChange area={'o'}>{percent_change_1h}% 1hr</PctChange>
       <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
       <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>
