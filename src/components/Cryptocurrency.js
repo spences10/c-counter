@@ -9,14 +9,12 @@ const CardWrapper = styled.div`
   grid-template-columns: 3;
   grid-template-rows: auto;
   grid-template-areas:
-    'n s .'
+    'n n n'
     'g . .'
     'u . .'
     'o . .'
     't . .'
     '7 . .';
-
-  border: 1px solid ${props => props.theme.black};
 
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
@@ -25,20 +23,26 @@ const CardWrapper = styled.div`
     transition: all 0.3s;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
   }
+  border: 1px solid ${props => props.theme.black};
   background-color: ${props => props.theme.white};
+  color: ${props => props.theme.black};
 `
 
-const Name = styled.h1`
-  margin: 0.5rem;
-  padding: 0.5rem;
-  grid-area: n;
+const Name = styled.span`
+  font-size: 2.5rem;
+  font-weight: bold;
 `
 
-const Symbol = styled.p`
+const Symbol = styled.span`
+  margin: 0.5rem 0.5rem 1rem 0.5rem;
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  font-size: 1.5rem;
+`
+
+const NameWrapper = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
-  grid-area: s;
-  align-self: center;
+  grid-area: ${props => props.area};
 `
 
 const Price = styled.span`
@@ -99,8 +103,10 @@ const Cryptocurrency = props => {
 
   return (
     <CardWrapper>
-      <Name>{name}</Name>
-      <Symbol>({symbol})</Symbol>
+      <NameWrapper area={'n'}>
+        <Name>{name}</Name>
+        <Symbol>({symbol})</Symbol>
+      </NameWrapper>
       <PriceWrapper area={'g'}>
         <Cur>£</Cur>
         <Price>{numberParts(price_gbp)[0]}</Price>
