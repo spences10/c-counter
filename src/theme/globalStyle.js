@@ -25,13 +25,16 @@ export const theme = {
   jsYellow: '#f7e018' // JS yellow
 }
 
+const importUrl =
+  'https://fonts.googleapis.com/css?family=Open+Sans|Roboto'
+
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+  @import url(${importUrl});
 
   body {
-    margin: 0;
-    padding: 2rem;
-    font-family: Open Sans,
+    margin: 0rem;
+    padding: 0rem;
+    font-family: 'Open Sans',
       Helvetica,
       Arial,
       sans-serif;
