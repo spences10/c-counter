@@ -3,7 +3,7 @@ import { injectGlobal } from 'styled-components'
 export const theme = {
   black: '#272727',
   white: '#fafafa',
-  dark: '#453463',
+  dark: '#4E5C6E',
   light: '#755f9f',
   green: '#8ac3a9',
   yellow: '#fcdeb6',
