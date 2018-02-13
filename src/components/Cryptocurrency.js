@@ -2,13 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { numberParts } from '../util/helpers'
+
 const CardWrapper = styled.div`
   display: grid;
   grid-template-columns: 3;
   grid-template-rows: auto;
   grid-template-areas:
     'n s .'
-    'g u .'
+    'g . .'
+    'u . .'
     'o . .'
     't . .'
     '7 . .';
@@ -38,10 +41,13 @@ const Symbol = styled.p`
   align-self: center;
 `
 
-const Price = styled.p`
+const Price = styled.span`
   margin: 0.5rem;
   padding: 0.5rem;
   grid-area: ${props => props.area};
+
+  font-size: 4rem;
+  font-weight: bold;
 `
 
 const PctChange = styled.p`
@@ -68,8 +74,14 @@ const Cryptocurrency = props => {
   return (
     <CardWrapper>
       <Name>{name}</Name> <Symbol>({symbol})</Symbol>
-      <Price area={'u'}>USD {parseFloat(price_usd).toFixed(2)}</Price>
-      <Price area={'g'}>GBP {parseFloat(price_gbp).toFixed(2)}</Price>
+      <Price area={'g'}>
+        {numberParts(price_usd)[0]}
+        {numberParts(price_usd)[1]}
+      </Price>
+      <Price area={'u'}>
+        {numberParts(price_usd)[0]}
+        {numberParts(price_usd)[1]}
+      </Price>
       <PctChange area={'o'}>{percent_change_1h}% 1hr</PctChange>
       <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
       <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>

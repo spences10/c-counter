@@ -3,20 +3,10 @@ import axios from 'axios'
 export async function fetchCryptocurrencyData(dataUrl) {
   const json = await axios.get(dataUrl)
   return json
-  // axios
-  //   .get(dataUrl)
-  //   .then(response => {
-  //     var wanted = [
-  //       'bitcoin',
-  //       'ethereum',
-  //       'ripple',
-  //       'bitcoin-cash',
-  //       'cardano'
-  //     ]
-  //     var result = response.data.filter(currency =>
-  //       wanted.includes(currency.id)
-  //     )
-  //     return result
-  //   })
-  //   .catch(err => console.log(err))
+}
+
+export function numberParts(fullNumber) {
+  const int = Math.floor(fullNumber).toString()
+  const dec = fullNumber - Math.floor(fullNumber)
+  return [int, dec.toFixed(2).substring(dec.toString().indexOf('.'))]
 }
