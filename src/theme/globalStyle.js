@@ -1,9 +1,9 @@
 import { injectGlobal } from 'styled-components'
 
 export const theme = {
-  black: '#272727',
-  white: '#fafafa',
-  dark: '#4E5C6E',
+  black: '#7d95b6',
+  white: '#ffffff',
+  dark: '#4e5c6e',
   light: '#755f9f',
   green: '#8ac3a9',
   yellow: '#fcdeb6',
@@ -38,5 +38,6 @@ injectGlobal`
       Helvetica,
       Arial,
       sans-serif;
+    background-color:#F4F7FA;
   }
 `
