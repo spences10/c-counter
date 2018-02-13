@@ -16,7 +16,7 @@ const CardWrapper = styled.div`
     't . .'
     '7 . .';
 
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   &:hover {
     transform: translateY(-3px);
@@ -40,9 +40,14 @@ const Symbol = styled.span`
 `
 
 const NameWrapper = styled.div`
-  margin: 0.5rem;
-  padding: 0.5rem;
+  margin: 0rem;
+  padding: 1rem;
+
   grid-area: ${props => props.area};
+  background: ${props => props.theme.dark};
+  color: ${props => props.theme.white};
+  border-radius: 9px 9px 0px 0px;
+  justify-content: center;
 `
 
 const Price = styled.span`
