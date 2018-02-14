@@ -33,12 +33,18 @@ class App extends React.Component {
   constructor() {
     super()
 
+    this.handleSelectChange = this.handleSelectChange.bind(this)
+
     this.state = {
       data: []
     }
   }
 
-  handleSelectChange() {}
+  handleSelectChange(e) {
+    console.log('====================')
+    console.log(this.apiUrl(e.target.value))
+    console.log('====================')
+  }
 
   apiUrl() {
     if (arguments.length === 0) {
@@ -68,7 +74,9 @@ class App extends React.Component {
   render() {
     return (
       <PageContainer>
-        <Quote>Cryptocurrency tickers</Quote>
+        <Quote handleSelectChange={this.handleSelectChange}>
+          Cryptocurrency tickers
+        </Quote>
         <CryptoWrapper>
           {this.state.data.map((items, index) => {
             // console.log('====================')
