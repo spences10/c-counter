@@ -10,3 +10,8 @@ export function numberParts(fullNumber) {
   const dec = fullNumber - Math.floor(fullNumber)
   return [int, dec.toFixed(2).substring(dec.toString().indexOf('.'))]
 }
+
+export function unixTimestampToISO(timestamp) {
+  const d = new Date(timestamp * 1000)
+  return d.toISOString()
+}
