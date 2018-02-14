@@ -58,9 +58,9 @@ class App extends React.Component {
         <Quote>Cryptocurrency tickers</Quote>
         <CryptoWrapper>
           {this.state.data.map((items, index) => {
-            console.log('====================')
-            console.log(items)
-            console.log('====================')
+            // console.log('====================')
+            // console.log(items)
+            // console.log('====================')
             return <Cryptocurrency key={index} {...items} />
           })}
         </CryptoWrapper>
