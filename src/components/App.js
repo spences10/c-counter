@@ -95,7 +95,7 @@ class App extends React.Component {
         </CryptoWrapper>
         {/* <Tickers /> */}
         <Notice>
-          Information updated every 10 seconds courtesy of
+          Information updated every 5 minutes courtesy of
           coinmarketcap.com
         </Notice>
         {/* <Button>Hey, click me!</Button> */}
