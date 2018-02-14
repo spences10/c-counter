@@ -5,8 +5,7 @@ import styled from 'styled-components'
 import {
   formatTime,
   numberParts,
-  secondsToMilliseconds,
-  timestampToISO
+  secondsToMilliseconds
 } from '../util/helpers'
 
 const CardWrapper = styled.div`
@@ -112,8 +111,6 @@ const Cryptocurrency = props => {
   // console.log('====================')
   // console.log('PROPS ', props)
   // console.log('====================')
-
-  console.log(timestampToISO(last_updated))
 
   return (
     <CardWrapper>
