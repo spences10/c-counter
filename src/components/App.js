@@ -33,34 +33,63 @@ class App extends React.Component {
   constructor() {
     super()
 
+    this.handleSelectChange = this.handleSelectChange.bind(this)
+
     this.state = {
       data: []
     }
   }
-  componentDidMount() {
-    fetchCryptocurrencyData(
-      'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
-    ).then(result => {
+
+  handleSelectChange(e) {
+    const url = this.apiUrl(e.target.value)
+    fetchCryptocurrencyData(url).then(result => {
       this.setState({ data: result.data })
     })
-
-    this.interval = setInterval(
-      () =>
-        fetchCryptocurrencyData(
-          'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
-        ),
-      10 * 1000
-    )
   }
+
+  apiUrl() {
+    if (arguments.length === 0 || !arguments[0]) {
+      return 'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
+    }
+
+    if (!arguments[1]) {
+      return `https://api.coinmarketcap.com/v1/ticker/?convert=${
+        arguments[0]
+      }&limit=10`
+    }
+
+    return `https://api.coinmarketcap.com/v1/ticker/?convert=${
+      arguments[0]
+    }&limit=${arguments[1]}`
+  }
+
+  componentWillMount() {
+    fetchCryptocurrencyData(this.apiUrl()).then(result => {
+      this.setState({ data: result.data })
+    })
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      console.log('start')
+      fetchCryptocurrencyData(this.apiUrl()).then(result => {
+        this.setState({ data: result.data })
+      })
+      console.log('end')
+    }, 2 * 60 * 1000)
+  }
+
   render() {
     return (
       <PageContainer>
-        <Quote>Cryptocurrency tickers</Quote>
+        <Quote handleSelectChange={this.handleSelectChange}>
+          Cryptocurrency tickers
+        </Quote>
         <CryptoWrapper>
           {this.state.data.map((items, index) => {
-            console.log('====================')
-            console.log(items)
-            console.log('====================')
+            // console.log('====================')
+            // console.log(items)
+            // console.log('====================')
             return <Cryptocurrency key={index} {...items} />
           })}
         </CryptoWrapper>

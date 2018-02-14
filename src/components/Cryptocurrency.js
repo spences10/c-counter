@@ -2,19 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { numberParts } from '../util/helpers'
+import {
+  formatTime,
+  numberParts,
+  secondsToMilliseconds,
+  timestampToISO
+} from '../util/helpers'
 
 const CardWrapper = styled.div`
   display: grid;
-  grid-template-columns: 3;
+  grid-template-columns: 4;
   grid-template-rows: auto;
   grid-template-areas:
-    'n n n'
-    'g . .'
-    'u . .'
-    'o . .'
-    't . .'
-    '7 . .';
+    'n n n n'
+    'g g u u'
+    'o t 7 7'
+    'z z z z';
 
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
@@ -74,9 +77,15 @@ const Cur = styled.span`
 
 const Dec = styled.span`
   grid-area: d;
-  margin: 0.6rem 0rem 0rem 0rem;
-  padding: 0rem 0rem 0rem 0rem;
+  margin: 0.6rem 0.5rem 0rem 0rem;
+  padding: 0rem 0.5rem 0rem 0rem;
   font-size: 2rem;
+`
+
+const LastUpdated = styled.span`
+  margin: 0.5rem;
+  padding: 0.5rem;
+  grid-area: ${props => props.area};
 `
 
 const PriceWrapper = styled.div`
@@ -84,7 +93,6 @@ const PriceWrapper = styled.div`
   grid-template-columns: 3;
   grid-template-rows: auto;
   grid-template-areas: 'c p d';
-  grid-area: ${props => props.area};
 
   justify-content: start;
   align-items: start;
@@ -96,15 +104,17 @@ const Cryptocurrency = props => {
     name,
     symbol,
     price_usd,
-    price_gbp,
     percent_change_1h,
     percent_change_24h,
-    percent_change_7d
+    percent_change_7d,
+    last_updated
   } = props
 
-  console.log('====================')
-  console.log('PROPS ', props)
-  console.log('====================')
+  // console.log('====================')
+  // console.log('PROPS ', props)
+  // console.log('====================')
+
+  console.log(timestampToISO(last_updated))
 
   return (
     <CardWrapper>
@@ -114,17 +124,26 @@ const Cryptocurrency = props => {
       </NameWrapper>
       <PriceWrapper area={'g'}>
         <Cur>£</Cur>
-        <Price>{numberParts(price_gbp)[0]}</Price>
-        <Dec>{numberParts(price_gbp)[1]}</Dec>
+        <Price>{numberParts(props.price_gbp)[0]}</Price>
+        <Dec>{numberParts(props.price_gbp)[1]}</Dec>
       </PriceWrapper>
       <PriceWrapper area={'u'}>
         <Cur>$</Cur>
         <Price>{numberParts(price_usd)[0]}</Price>
         <Dec>{numberParts(price_usd)[1]}</Dec>
       </PriceWrapper>
+      <PriceWrapper area={'e'}>
+        <Cur>€</Cur>
+        <Price>{numberParts(props.price_eur)[0]}</Price>
+        <Dec>{numberParts(props.price_eur)[1]}</Dec>
+      </PriceWrapper>
       <PctChange area={'o'}>{percent_change_1h}% 1hr</PctChange>
       <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
       <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>
+      <LastUpdated area={'z'}>
+        {formatTime(secondsToMilliseconds(last_updated))}
+        {formatTime(secondsToMilliseconds(last_updated), 5)}
+      </LastUpdated>
     </CardWrapper>
   )
 }
@@ -137,7 +156,9 @@ Cryptocurrency.propTypes = {
   symbol: PropTypes.string,
   price_usd: PropTypes.string,
   price_gbp: PropTypes.string,
+  price_eur: PropTypes.string,
   percent_change_1h: PropTypes.string,
   percent_change_24h: PropTypes.string,
-  percent_change_7d: PropTypes.string
+  percent_change_7d: PropTypes.string,
+  last_updated: PropTypes.string
 }
