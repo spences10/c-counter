@@ -37,21 +37,27 @@ class App extends React.Component {
       data: []
     }
   }
-  componentDidMount() {
+
+  componentWillMount() {
     fetchCryptocurrencyData(
       'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
     ).then(result => {
       this.setState({ data: result.data })
     })
-
-    this.interval = setInterval(
-      () =>
-        fetchCryptocurrencyData(
-          'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
-        ),
-      10 * 1000
-    )
   }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      console.log('start')
+      fetchCryptocurrencyData(
+        'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
+      ).then(result => {
+        this.setState({ data: result.data })
+      })
+      console.log('end')
+    }, 2 * 60 * 1000)
+  }
+
   render() {
     return (
       <PageContainer>
