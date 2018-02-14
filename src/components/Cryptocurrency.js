@@ -2,7 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { numberParts } from '../util/helpers'
+import {
+  addMinutes,
+  formatTime,
+  numberParts,
+  secondsToMilliseconds,
+  timestampToISO
+} from '../util/helpers'
 
 const CardWrapper = styled.div`
   display: grid;
@@ -79,6 +85,8 @@ const Dec = styled.span`
   font-size: 2rem;
 `
 
+const LastUpdated = styled.span``
+
 const PriceWrapper = styled.div`
   display: grid;
   grid-template-columns: 3;
@@ -99,12 +107,15 @@ const Cryptocurrency = props => {
     price_gbp,
     percent_change_1h,
     percent_change_24h,
-    percent_change_7d
+    percent_change_7d,
+    last_updated
   } = props
 
-  console.log('====================')
-  console.log('PROPS ', props)
-  console.log('====================')
+  // console.log('====================')
+  // console.log('PROPS ', props)
+  // console.log('====================')
+
+  console.log(timestampToISO(last_updated))
 
   return (
     <CardWrapper>
@@ -125,6 +136,10 @@ const Cryptocurrency = props => {
       <PctChange area={'o'}>{percent_change_1h}% 1hr</PctChange>
       <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
       <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>
+      <LastUpdated>
+        {formatTime(secondsToMilliseconds(last_updated))}
+        {formatTime(secondsToMilliseconds(last_updated), 5)}
+      </LastUpdated>
     </CardWrapper>
   )
 }
@@ -139,5 +154,6 @@ Cryptocurrency.propTypes = {
   price_gbp: PropTypes.string,
   percent_change_1h: PropTypes.string,
   percent_change_24h: PropTypes.string,
-  percent_change_7d: PropTypes.string
+  percent_change_7d: PropTypes.string,
+  last_updated: PropTypes.string
 }
