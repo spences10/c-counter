@@ -41,15 +41,26 @@ class App extends React.Component {
   }
 
   handleSelectChange(e) {
+    const url = this.apiUrl(e.target.value)
     console.log('====================')
-    console.log(this.apiUrl(e.target.value))
+    console.log(url)
     console.log('====================')
+    fetchCryptocurrencyData(url).then(result => {
+      this.setState({ data: result.data })
+    })
   }
 
   apiUrl() {
-    if (arguments.length === 0) {
+    if (arguments.length === 0 || !arguments[0]) {
       return 'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
     }
+
+    if (!arguments[1]) {
+      return `https://api.coinmarketcap.com/v1/ticker/?convert=${
+        arguments[0]
+      }&limit=10`
+    }
+
     return `https://api.coinmarketcap.com/v1/ticker/?convert=${
       arguments[0]
     }&limit=${arguments[1]}`
