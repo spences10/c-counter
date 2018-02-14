@@ -44,7 +44,7 @@ class Quote extends React.Component {
         <QuoteCurrencyWrapper>
           <StyledQuote>{this.props.children}</StyledQuote>
           <CurrencySelect
-            handleSelectChange={this.props.handleSelectChange}
+            handleCurrencyChange={this.props.handleCurrencyChange}
           />
         </QuoteCurrencyWrapper>
       </QuoteWrapper>
@@ -56,5 +56,5 @@ export default Quote
 
 Quote.propTypes = {
   children: PropTypes.string,
-  handleSelectChange: PropTypes.func
+  handleCurrencyChange: PropTypes.func
 }

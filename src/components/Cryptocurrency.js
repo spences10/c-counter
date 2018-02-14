@@ -103,7 +103,6 @@ const Cryptocurrency = props => {
   const {
     name,
     symbol,
-    price_usd,
     percent_change_1h,
     percent_change_24h,
     percent_change_7d,
@@ -129,8 +128,8 @@ const Cryptocurrency = props => {
       </PriceWrapper>
       <PriceWrapper area={'u'}>
         <Cur>$</Cur>
-        <Price>{numberParts(price_usd)[0]}</Price>
-        <Dec>{numberParts(price_usd)[1]}</Dec>
+        <Price>{numberParts(props.price_usd)[0]}</Price>
+        <Dec>{numberParts(props.price_usd)[1]}</Dec>
       </PriceWrapper>
       <PriceWrapper area={'e'}>
         <Cur>€</Cur>

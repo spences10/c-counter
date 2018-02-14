@@ -33,14 +33,14 @@ class App extends React.Component {
   constructor() {
     super()
 
-    this.handleSelectChange = this.handleSelectChange.bind(this)
+    this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
 
     this.state = {
       data: []
     }
   }
 
-  handleSelectChange(e) {
+  handleCurrencyChange(e) {
     const url = this.apiUrl(e.target.value)
     fetchCryptocurrencyData(url).then(result => {
       this.setState({ data: result.data })
@@ -82,7 +82,7 @@ class App extends React.Component {
   render() {
     return (
       <PageContainer>
-        <Quote handleSelectChange={this.handleSelectChange}>
+        <Quote handleCurrencyChange={this.handleCurrencyChange}>
           Cryptocurrency tickers
         </Quote>
         <CryptoWrapper>
