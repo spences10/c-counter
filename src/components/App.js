@@ -36,7 +36,8 @@ class App extends React.Component {
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
 
     this.state = {
-      data: []
+      data: [],
+      currency: ''
     }
   }
 
@@ -45,6 +46,7 @@ class App extends React.Component {
     fetchCryptocurrencyData(url).then(result => {
       this.setState({ data: result.data })
     })
+    this.setState({ currency: e.target.value })
   }
 
   apiUrl() {
@@ -71,11 +73,9 @@ class App extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      console.log('start')
       fetchCryptocurrencyData(this.apiUrl()).then(result => {
         this.setState({ data: result.data })
       })
-      console.log('end')
     }, 2 * 60 * 1000)
   }
 
@@ -90,7 +90,13 @@ class App extends React.Component {
             // console.log('====================')
             // console.log(items)
             // console.log('====================')
-            return <Cryptocurrency key={index} {...items} />
+            return (
+              <Cryptocurrency
+                key={index}
+                {...items}
+                currency={this.state.currency}
+              />
+            )
           })}
         </CryptoWrapper>
         {/* <Tickers /> */}
