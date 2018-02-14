@@ -38,10 +38,19 @@ class App extends React.Component {
     }
   }
 
+  handleSelectChange() {}
+
+  apiUrl() {
+    if (arguments.length === 0) {
+      return 'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
+    }
+    return `https://api.coinmarketcap.com/v1/ticker/?convert=${
+      arguments[0]
+    }&limit=${arguments[1]}`
+  }
+
   componentWillMount() {
-    fetchCryptocurrencyData(
-      'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
-    ).then(result => {
+    fetchCryptocurrencyData(this.apiUrl()).then(result => {
       this.setState({ data: result.data })
     })
   }
@@ -49,9 +58,7 @@ class App extends React.Component {
   componentDidMount() {
     this.interval = setInterval(() => {
       console.log('start')
-      fetchCryptocurrencyData(
-        'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
-      ).then(result => {
+      fetchCryptocurrencyData(this.apiUrl()).then(result => {
         this.setState({ data: result.data })
       })
       console.log('end')
