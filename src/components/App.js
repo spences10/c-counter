@@ -42,9 +42,6 @@ class App extends React.Component {
 
   handleSelectChange(e) {
     const url = this.apiUrl(e.target.value)
-    console.log('====================')
-    console.log(url)
-    console.log('====================')
     fetchCryptocurrencyData(url).then(result => {
       this.setState({ data: result.data })
     })
