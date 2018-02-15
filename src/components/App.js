@@ -33,16 +33,27 @@ class App extends React.Component {
   constructor() {
     super()
 
-    this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
-
     this.state = {
       data: [],
-      currency: 'GBP'
+      currency: 'GBP',
+      limit: 50,
+      apiUrl: 'https://api.coinmarketcap.com/v1/ticker/'
     }
+
+    // In ES6 classes the constructor takes the place of
+    // componentWillMount. 👍
+    fetchCryptocurrencyData(this.apiUrl()).then(result => {
+      this.setState({ data: result.data })
+    })
+
+    this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
   }
 
   handleCurrencyChange(e) {
     const url = this.apiUrl(e.target.value)
+    console.log('====================')
+    console.log(url)
+    console.log('====================')
     fetchCryptocurrencyData(url).then(result => {
       this.setState({ data: result.data })
     })
@@ -51,30 +62,22 @@ class App extends React.Component {
 
   apiUrl() {
     if (arguments.length === 0 || !arguments[0]) {
-      return 'https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=50'
+      return `${this.state.apiUrl}?convert=GBP&limit=50`
     }
 
     if (!arguments[1]) {
-      return `https://api.coinmarketcap.com/v1/ticker/?convert=${
-        arguments[0]
-      }&limit=10`
+      return `${this.state.apiUrl}?convert=${arguments[0]}&limit=10`
     }
 
-    return `https://api.coinmarketcap.com/v1/ticker/?convert=${
-      arguments[0]
-    }&limit=${arguments[1]}`
-  }
-
-  componentWillMount() {
-    fetchCryptocurrencyData(this.apiUrl()).then(result => {
-      this.setState({ data: result.data })
-    })
+    return `${this.state.apiUrl}?convert=${arguments[0]}&limit=${
+      arguments[1]
+    }`
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
       fetchCryptocurrencyData(this.apiUrl()).then(result => {
-        this.setState({ data: result.data })
+        this.setState({ data: result.data, apiUrl: this.apiUrl() })
       })
     }, 2 * 60 * 1000)
   }
