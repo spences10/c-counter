@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import CurrencySelect from './CurrencySelect'
 
+import { media } from '../theme/globalStyle'
+
 const StyledQuote = styled.blockquote`
   grid-area: q;
   color: ${props => props.theme.dark};
@@ -34,6 +36,25 @@ const QuoteCurrencyWrapper = styled.div`
   grid-template-areas: 'q c';
 
   margin: 2rem 0;
+
+  /* ${media.giant`
+    grid-template-columns: 3fr 1fr;
+  `};
+  ${media.desktop`
+    grid-template-columns: 3fr 1fr;
+
+  `};
+  ${media.tablet`
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      'q'
+      'c';
+  `};
+  ${media.phone`
+    grid-template-areas: 
+      'q'
+      'c';
+  `}; */
 `
 
 class Quote extends React.Component {
@@ -44,7 +65,7 @@ class Quote extends React.Component {
         <QuoteCurrencyWrapper>
           <StyledQuote>{this.props.children}</StyledQuote>
           <CurrencySelect
-            handleSelectChange={this.props.handleSelectChange}
+            handleCurrencyChange={this.props.handleCurrencyChange}
           />
         </QuoteCurrencyWrapper>
       </QuoteWrapper>
@@ -56,5 +77,5 @@ export default Quote
 
 Quote.propTypes = {
   children: PropTypes.string,
-  handleSelectChange: PropTypes.func
+  handleCurrencyChange: PropTypes.func
 }

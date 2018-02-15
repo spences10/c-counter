@@ -27,7 +27,7 @@ export const SelectOpt = styled.option`
 class CurrencySelect extends React.Component {
   render() {
     return (
-      <Select onChange={e => this.props.handleSelectChange(e)}>
+      <Select onChange={e => this.props.handleCurrencyChange(e)}>
         <SelectOpt value="GBP">GBP</SelectOpt>
         <SelectOpt value="USD">USD</SelectOpt>
         <SelectOpt value="EUR">EUR</SelectOpt>
@@ -39,5 +39,5 @@ class CurrencySelect extends React.Component {
 export default CurrencySelect
 
 CurrencySelect.propTypes = {
-  handleSelectChange: PropTypes.func
+  handleCurrencyChange: PropTypes.func
 }

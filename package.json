@@ -30,7 +30,9 @@
     "alias:prod":
       "now alias c-counter.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN",
-    "release": "release-it"
+    "release": "release-it",
+    "local:build:deploy":
+      "npm run clean && npm run build && now c-counter/"
   },
   "pre-commit": "npm run format",
   "main": "index.js",

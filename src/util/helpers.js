@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 export async function fetchCryptocurrencyData(dataUrl) {
-  const json = await axios.get(dataUrl)
-  return json
+  return await axios.get(dataUrl)
 }
 
 export function numberParts(fullNumber) {
