@@ -37,7 +37,7 @@ class App extends React.Component {
 
     this.state = {
       data: [],
-      currency: ''
+      currency: 'GBP'
     }
   }
 
