@@ -100,9 +100,15 @@ const PriceWrapper = styled.div`
 `
 
 class Cryptocurrency extends React.Component {
-  constructor() {
-    super()
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('====================')
+  //   console.log(nextProps)
+  //   console.log('====================')
+  //   console.log('====================')
+  //   console.log(nextState)
+  //   console.log('====================')
+  //   return true
+  // }
 
   renderCurrency() {
     let sign, price, dec
