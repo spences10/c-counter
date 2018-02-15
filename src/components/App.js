@@ -5,10 +5,11 @@ import styled from 'styled-components'
 import Quote from './Quote'
 import Notice from './Notice'
 
-// import Tickers from './Tickers'
 import Cryptocurrency from './Cryptocurrency'
 
 import { fetchCryptocurrencyData } from '../util/helpers'
+
+import { media } from '../theme/globalStyle'
 
 const PageContainer = styled.div`
   display: grid;
@@ -19,14 +20,63 @@ const PageContainer = styled.div`
     '. . h h h h h h h h . .'
     '. . c c c c c c c c . .'
     '. . f f f f f f f f . .';
+  /* ${media.giant`
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      '. . h h h h h h . .'
+      '. . c c c c c c . .'
+      '. . f f f f f f . .';
+    background: goldenrod;
+  `};
+  ${media.desktop`
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      '. h h h h h h .'
+      '. c c c c c c .'
+      '. f f f f f f .';
+    background: dodgerblue;
+  `};
+  ${media.tablet`
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      '. h h h h .'
+      '. c c c c .'
+      '. f f f f .';
+    background: mediumseagreen;
+  `};
+  ${media.phone`
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      '. h .'
+      '. c .'
+      '. f .';
+      background: palevioletred;
+  `}; */
 `
 
 const CryptoWrapper = styled.div`
   display: grid;
   grid-area: c;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
   grid-template-rows: auto;
+
+  /* ${media.giant`
+    grid-template-columns: repeat(3, 1fr);
+  `};
+  ${media.desktop`
+    grid-template-columns: repeat(2, 1fr);
+  `};
+  ${media.tablet`
+    grid-template-columns: repeat(2, 1fr);
+  `};
+  ${media.phone`
+    grid-template-columns: repeat(1, 1fr);
+  `}; */
 `
 
 class App extends React.Component {
