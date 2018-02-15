@@ -13,8 +13,8 @@ const CardWrapper = styled.div`
   grid-template-columns: 4;
   grid-template-rows: auto;
   grid-template-areas:
-    'n n n n'
-    'g g u u'
+    'name  name  name  name'
+    'price price price price'
     'o t 7 7'
     'z z z z';
 
@@ -96,52 +96,66 @@ const PriceWrapper = styled.div`
   justify-content: start;
   align-items: start;
   color: ${props => props.theme.dark};
+  grid-area: ${props => props.area};
 `
 
-const Cryptocurrency = props => {
-  const {
-    name,
-    symbol,
-    percent_change_1h,
-    percent_change_24h,
-    percent_change_7d,
-    last_updated
-  } = props
+class Cryptocurrency extends React.Component {
+  constructor() {
+    super()
+  }
 
-  // console.log('====================')
-  // console.log('PROPS ', props)
-  // console.log('====================')
+  renderCurrency() {
+    let sign, price, dec
+    if (this.props.currency === 'GBP') {
+      sign = '£'
+      price = numberParts(this.props.price_gbp)[0]
+      dec = numberParts(this.props.price_gbp)[1]
+    } else if (this.props.currency === 'USD') {
+      sign = '$'
+      price = numberParts(this.props.price_usd)[0]
+      dec = numberParts(this.props.price_usd)[1]
+    } else if (this.props.currency === 'EUR') {
+      sign = '€'
+      price = numberParts(this.props.price_eur)[0]
+      dec = numberParts(this.props.price_eur)[1]
+    }
 
-  return (
-    <CardWrapper>
-      <NameWrapper area={'n'}>
-        <Name>{name}</Name>
-        <Symbol>({symbol})</Symbol>
-      </NameWrapper>
-      <PriceWrapper area={'g'}>
-        <Cur>£</Cur>
-        <Price>{numberParts(props.price_gbp)[0]}</Price>
-        <Dec>{numberParts(props.price_gbp)[1]}</Dec>
+    return (
+      <PriceWrapper area={'price'}>
+        <Cur>{sign}</Cur>
+        <Price>{price}</Price>
+        <Dec>{dec}</Dec>
       </PriceWrapper>
-      <PriceWrapper area={'u'}>
-        <Cur>$</Cur>
-        <Price>{numberParts(props.price_usd)[0]}</Price>
-        <Dec>{numberParts(props.price_usd)[1]}</Dec>
-      </PriceWrapper>
-      <PriceWrapper area={'e'}>
-        <Cur>€</Cur>
-        <Price>{numberParts(props.price_eur)[0]}</Price>
-        <Dec>{numberParts(props.price_eur)[1]}</Dec>
-      </PriceWrapper>
-      <PctChange area={'o'}>{percent_change_1h}% 1hr</PctChange>
-      <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
-      <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>
-      <LastUpdated area={'z'}>
-        {formatTime(secondsToMilliseconds(last_updated))}
-        {formatTime(secondsToMilliseconds(last_updated), 5)}
-      </LastUpdated>
-    </CardWrapper>
-  )
+    )
+  }
+
+  render() {
+    const {
+      name,
+      symbol,
+      percent_change_1h,
+      percent_change_24h,
+      percent_change_7d,
+      last_updated
+    } = this.props
+
+    return (
+      <CardWrapper>
+        <NameWrapper area={'name'}>
+          <Name>{name}</Name>
+          <Symbol>({symbol})</Symbol>
+        </NameWrapper>
+        {this.renderCurrency(this.props.currency)}
+        <PctChange area={'o'}>{percent_change_1h}% 1hr</PctChange>
+        <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
+        <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>
+        <LastUpdated area={'z'}>
+          {formatTime(secondsToMilliseconds(last_updated))}
+          {formatTime(secondsToMilliseconds(last_updated), 5)}
+        </LastUpdated>
+      </CardWrapper>
+    )
+  }
 }
 
 export default Cryptocurrency
@@ -156,5 +170,6 @@ Cryptocurrency.propTypes = {
   percent_change_1h: PropTypes.string,
   percent_change_24h: PropTypes.string,
   percent_change_7d: PropTypes.string,
-  last_updated: PropTypes.string
+  last_updated: PropTypes.string,
+  currency: PropTypes.string
 }
