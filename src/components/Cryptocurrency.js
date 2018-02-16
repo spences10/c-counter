@@ -100,16 +100,6 @@ const PriceWrapper = styled.div`
 `
 
 class Cryptocurrency extends React.Component {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('====================')
-  //   console.log(nextProps)
-  //   console.log('====================')
-  //   console.log('====================')
-  //   console.log(nextState)
-  //   console.log('====================')
-  //   return true
-  // }
-
   renderCurrency() {
     let sign, price, dec
     if (this.props.currency === 'GBP') {
@@ -156,7 +146,7 @@ class Cryptocurrency extends React.Component {
         <PctChange area={'t'}>{percent_change_24h}% 24hr</PctChange>
         <PctChange area={'7'}>{percent_change_7d}% 7days</PctChange>
         <LastUpdated area={'z'}>
-          {formatTime(secondsToMilliseconds(last_updated))}
+          {formatTime(secondsToMilliseconds(last_updated))}{' '}
           {formatTime(secondsToMilliseconds(last_updated), 5)}
         </LastUpdated>
       </CardWrapper>
