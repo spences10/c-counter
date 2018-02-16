@@ -97,15 +97,27 @@ class App extends React.Component {
     })
 
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
+    this.handleLimitChange = this.handleLimitChange.bind(this)
   }
 
   handleCurrencyChange(e) {
     const sign = e.target.value
-    const url = this.apiUrl(sign)
+    const url = this.apiUrl(sign, this.state.limit)
     fetchCryptocurrencyData(url).then(result => {
       // add reduce on the data for the requested currency
       // set currency with result data
       this.setState({ data: result.data, currency: sign })
+    })
+    // this.setState({ currency: e.target.value })
+  }
+
+  handleLimitChange(e) {
+    const limit = e.target.value
+    const url = this.apiUrl(this.state.currency, limit)
+    fetchCryptocurrencyData(url).then(result => {
+      // add reduce on the data for the requested currency
+      // set currency with result data
+      this.setState({ data: result.data, limit })
     })
     // this.setState({ currency: e.target.value })
   }
@@ -142,7 +154,8 @@ class App extends React.Component {
       <PageContainer>
         <Quote
           currency={this.state.currency}
-          handleCurrencyChange={this.handleCurrencyChange}>
+          handleCurrencyChange={this.handleCurrencyChange}
+          handleLimitChange={this.handleLimitChange}>
           Cryptocurrency tickers
         </Quote>
         <CryptoWrapper>

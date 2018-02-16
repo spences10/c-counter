@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import CurrencySelect from './CurrencySelect'
+import LimitSelect from './LimitSelect'
 
 import { media } from '../theme/globalStyle'
 
@@ -31,9 +32,9 @@ const QuoteWrapper = styled.div`
 const QuoteCurrencyWrapper = styled.div`
   display: grid;
 
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 'q c';
+  grid-template-areas: 'q c l';
 
   margin: 2rem 0;
 
@@ -68,6 +69,9 @@ class Quote extends React.Component {
             currency={this.props.currency}
             handleCurrencyChange={this.props.handleCurrencyChange}
           />
+          <LimitSelect
+            handleLimitChange={this.props.handleLimitChange}
+          />
         </QuoteCurrencyWrapper>
       </QuoteWrapper>
     )
@@ -79,5 +83,6 @@ export default Quote
 Quote.propTypes = {
   children: PropTypes.string,
   handleCurrencyChange: PropTypes.func,
-  currency: PropTypes.string
+  currency: PropTypes.string,
+  handleLimitChange: PropTypes.func
 }
