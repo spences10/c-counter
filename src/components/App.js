@@ -124,11 +124,11 @@ class App extends React.Component {
 
   apiUrl() {
     if (arguments.length === 0 || !arguments[0]) {
-      return `${this.state.apiUrl}?convert=GBP&limit=50`
+      return `${this.state.apiUrl}?convert=GBP&limit=3`
     }
 
     if (!arguments[1]) {
-      return `${this.state.apiUrl}?convert=${arguments[0]}&limit=10`
+      return `${this.state.apiUrl}?convert=${arguments[0]}&limit=3`
     }
 
     return `${this.state.apiUrl}?convert=${arguments[0]}&limit=${
