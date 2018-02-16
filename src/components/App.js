@@ -125,10 +125,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    // console.log('====================')
+    // console.log(this.apiUrl())
+    // console.log('====================')
     this.interval = setInterval(() => {
-      fetchCryptocurrencyData(this.apiUrl()).then(result => {
-        this.setState({ data: result.data })
-      })
+      fetchCryptocurrencyData(this.apiUrl(this.state.currency)).then(
+        result => {
+          this.setState({ data: result.data })
+        }
+      )
     }, 2 * 60 * 1000)
   }
 
