@@ -100,14 +100,14 @@ class App extends React.Component {
   }
 
   handleCurrencyChange(e) {
-    const url = this.apiUrl(e.target.value)
-    console.log('====================')
-    console.log(url)
-    console.log('====================')
+    const sign = e.target.value
+    const url = this.apiUrl(sign)
     fetchCryptocurrencyData(url).then(result => {
-      this.setState({ data: result.data })
+      // add reduce on the data for the requested currency
+      // set currency with result data
+      this.setState({ data: result.data, currency: sign })
     })
-    this.setState({ currency: e.target.value })
+    // this.setState({ currency: e.target.value })
   }
 
   apiUrl() {
@@ -135,7 +135,9 @@ class App extends React.Component {
   render() {
     return (
       <PageContainer>
-        <Quote handleCurrencyChange={this.handleCurrencyChange}>
+        <Quote
+          currency={this.state.currency}
+          handleCurrencyChange={this.handleCurrencyChange}>
           Cryptocurrency tickers
         </Quote>
         <CryptoWrapper>

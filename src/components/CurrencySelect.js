@@ -28,6 +28,7 @@ class CurrencySelect extends React.Component {
   render() {
     return (
       <Select onChange={e => this.props.handleCurrencyChange(e)}>
+        {console.log(this.props)}
         <SelectOpt value="GBP">GBP</SelectOpt>
         <SelectOpt value="USD">USD</SelectOpt>
         <SelectOpt value="EUR">EUR</SelectOpt>
