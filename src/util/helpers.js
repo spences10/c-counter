@@ -30,7 +30,7 @@ export function formatTime(d, addMins) {
 }
 
 export function formatNumber(num) {
-  return `${parseInt(num)
+  return `${parseInt(num, 10)
     .toFixed(0)
     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
 }
