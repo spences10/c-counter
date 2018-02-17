@@ -32,7 +32,9 @@
     "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN",
     "release": "release-it",
     "local:build:deploy":
-      "npm run clean && npm run build && now c-counter/"
+      "npm run clean && npm run build && now c-counter/",
+    "pause":
+      "node -e \"((time) => new Promise((resolve) => setTimeout(resolve, time)))(process.argv[1]).then(() => process.exit(0))\" 3000"
   },
   "pre-commit": "npm run format",
   "main": "index.js",
