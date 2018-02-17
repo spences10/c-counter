@@ -28,3 +28,9 @@ export function formatTime(d, addMins) {
 
   return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
 }
+
+export function formatNumber(num) {
+  return `${parseInt(num, 10)
+    .toFixed(0)
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
+}

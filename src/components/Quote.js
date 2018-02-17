@@ -38,24 +38,33 @@ const QuoteCurrencyWrapper = styled.div`
 
   margin: 2rem 0;
 
-  /* ${media.giant`
-    grid-template-columns: 3fr 1fr;
+  ${media.giant`
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      'q .'
+      'c l';
   `};
   ${media.desktop`
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1f 1fr;
+    grid-template-areas: 
+      'q .'
+      'c l';
 
   `};
   ${media.tablet`
     grid-template-columns: 1fr;
     grid-template-areas: 
       'q'
-      'c';
+      'c'
+      'l';
   `};
   ${media.phone`
     grid-template-areas: 
       'q'
-      'c';
-  `}; */
+      'c'
+      'l';
+  `};
 `
 
 class Quote extends React.Component {

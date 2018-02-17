@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import {
   formatTime,
   numberParts,
-  secondsToMilliseconds
+  secondsToMilliseconds,
+  formatNumber
 } from '../util/helpers'
 
 const CardWrapper = styled.div`
@@ -104,15 +105,15 @@ class Cryptocurrency extends React.Component {
     let sign, price, dec
     if (this.props.currency === 'GBP') {
       sign = '£'
-      price = numberParts(this.props.price_gbp)[0]
+      price = formatNumber(numberParts(this.props.price_gbp)[0])
       dec = numberParts(this.props.price_gbp)[1]
     } else if (this.props.currency === 'USD') {
       sign = '$'
-      price = numberParts(this.props.price_usd)[0]
+      price = formatNumber(numberParts(this.props.price_usd)[0])
       dec = numberParts(this.props.price_usd)[1]
     } else if (this.props.currency === 'EUR') {
       sign = '€'
-      price = numberParts(this.props.price_eur)[0]
+      price = formatNumber(numberParts(this.props.price_eur)[0])
       dec = numberParts(this.props.price_eur)[1]
     }
 
