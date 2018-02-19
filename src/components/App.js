@@ -93,7 +93,8 @@ class App extends React.Component {
       limit: 3,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
       timeNow: formatTime(new Date()),
-      timeNext: ''
+      timeNext: '',
+      currentSearch: ''
     }
 
     // In ES6 classes the constructor takes the place of
@@ -129,7 +130,18 @@ class App extends React.Component {
   handleSearch(e) {
     const regex = new RegExp(e.target.value, 'gi')
     this.setState({
-      data: this.state.data.filter(item => item.name.match(regex))
+      data: this.state.data.filter(
+        item => item.name.match(regex) || item.symbol.match(regex)
+      ),
+      currentSearch: e.target.value
+    })
+  }
+
+  filterData() {
+    this.setState({
+      data: this.state.data.filter(item =>
+        item.name.match(this.state.currentSearch)
+      )
     })
   }
 
@@ -149,6 +161,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
+      if (!this.state.data[0]) return
       const { last_updated } = this.state.data[0]
 
       const timeNow = formatTime(new Date())
