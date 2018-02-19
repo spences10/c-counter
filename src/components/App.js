@@ -7,9 +7,13 @@ import Notice from './Notice'
 
 import Cryptocurrency from './Cryptocurrency'
 
-import { fetchCryptocurrencyData } from '../util/helpers'
+import {
+  fetchCryptocurrencyData,
+  formatTime,
+  secondsToMilliseconds
+} from '../util/helpers'
 
-import { media } from '../theme/globalStyle'
+import { media, StyledLink } from '../theme/globalStyle'
 
 const PageContainer = styled.div`
   display: grid;
@@ -86,8 +90,10 @@ class App extends React.Component {
     this.state = {
       data: [],
       currency: 'GBP',
-      limit: 50,
-      apiUrl: 'https://api.coinmarketcap.com/v1/ticker/'
+      limit: 3,
+      apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
+      timeNow: formatTime(new Date()),
+      timeNext: ''
     }
 
     // In ES6 classes the constructor takes the place of
@@ -134,16 +140,39 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('====================')
-    // console.log(this.apiUrl())
-    // console.log('====================')
     this.interval = setInterval(() => {
-      fetchCryptocurrencyData(this.apiUrl(this.state.currency)).then(
-        result => {
-          this.setState({ data: result.data })
-        }
+      const { last_updated } = this.state.data[0]
+
+      const timeNow = formatTime(new Date())
+      const timeNext = formatTime(
+        secondsToMilliseconds(last_updated),
+        5
       )
-    }, 2 * 60 * 1000)
+
+      this.setState({ timeNow, timeNext })
+
+      if (timeNow > timeNext) {
+        // console.log('====================')
+        // console.log('updating')
+        // console.log('====================')
+
+        fetchCryptocurrencyData(
+          this.apiUrl(this.state.currency, this.state.limit)
+        ).then(result => {
+          this.setState({
+            data: result.data,
+            limit: this.state.limit,
+            timeNow,
+            timeNext
+          })
+        })
+      }
+      // console.log('====================')
+      // console.log('time now :', timeNow)
+      // console.log('time next:', timeNext)
+      // console.log(timeNow > timeNext)
+      // console.log('====================')
+    }, 10 * 1000)
   }
 
   render() {
@@ -171,8 +200,13 @@ class App extends React.Component {
         </CryptoWrapper>
         {/* <Tickers /> */}
         <Notice>
-          Information updated every 5 minutes courtesy of
-          coinmarketcap.com
+          Information updated every 5 minutes courtesy of{' '}
+          <StyledLink
+            target="_blank"
+            rel="noopener"
+            href={'https://coinmarketcap.com/'}>
+            coinmarketcap.com
+          </StyledLink>
         </Notice>
         {/* <Button>Hey, click me!</Button> */}
       </PageContainer>

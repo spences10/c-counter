@@ -1,4 +1,4 @@
-import { injectGlobal, css } from 'styled-components'
+import styled, { injectGlobal, css } from 'styled-components'
 
 export const theme = {
   black: '#7d95b6',
@@ -89,3 +89,30 @@ export const media = Object.keys(sizes).reduce(
   },
   {}
 )
+
+export const StyledLink = styled.a`
+  color: ${props => props.theme.purple};
+  &:hover {
+    animation: halftone 1s forwards;
+    border-radius: 10px;
+    padding: 0.2rem;
+    background: radial-gradient(
+          circle,
+          ${({ theme }) => theme.dark} 0.2em,
+          transparent 0.25em
+        )
+        0 0 / 1.25em 1.25em,
+      radial-gradient(
+          circle,
+          ${({ theme }) => theme.dark} 0.2em,
+          transparent 0.25em
+        )
+        6.25em 6.25em / 1.25em 1.25em;
+    color: ${({ theme }) => theme.white};
+  }
+  @keyframes halftone {
+    100% {
+      background-size: 2.375em 2.375em, 0.1em 0.1em;
+    }
+  }
+`
