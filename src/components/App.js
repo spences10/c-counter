@@ -104,6 +104,7 @@ class App extends React.Component {
 
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
     this.handleLimitChange = this.handleLimitChange.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleCurrencyChange(e) {
@@ -122,6 +123,13 @@ class App extends React.Component {
     fetchCryptocurrencyData(url).then(result => {
       // set limit with result data
       this.setState({ data: result.data, limit })
+    })
+  }
+
+  handleSearch(e) {
+    const regex = new RegExp(e.target.value, 'gi')
+    this.setState({
+      data: this.state.data.filter(item => item.name.match(regex))
     })
   }
 
@@ -181,7 +189,8 @@ class App extends React.Component {
         <Quote
           currency={this.state.currency}
           handleCurrencyChange={this.handleCurrencyChange}
-          handleLimitChange={this.handleLimitChange}>
+          handleLimitChange={this.handleLimitChange}
+          handleSearch={this.handleSearch}>
           Cryptocurrency tickers
         </Quote>
         <CryptoWrapper>

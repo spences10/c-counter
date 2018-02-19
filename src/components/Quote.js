@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import CurrencySelect from './CurrencySelect'
 import LimitSelect from './LimitSelect'
+import CurrencySearch from './CurrencySearch'
 
 import { media } from '../theme/globalStyle'
 
@@ -81,6 +82,7 @@ class Quote extends React.Component {
           <LimitSelect
             handleLimitChange={this.props.handleLimitChange}
           />
+          <CurrencySearch handleSearch={this.props.handleSearch} />
         </QuoteCurrencyWrapper>
       </QuoteWrapper>
     )
@@ -93,5 +95,6 @@ Quote.propTypes = {
   children: PropTypes.string,
   handleCurrencyChange: PropTypes.func,
   currency: PropTypes.string,
-  handleLimitChange: PropTypes.func
+  handleLimitChange: PropTypes.func,
+  handleSearch: PropTypes.func
 }
