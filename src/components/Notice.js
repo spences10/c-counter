@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledNotice = styled.div`
@@ -8,7 +7,7 @@ const StyledNotice = styled.div`
   background: #f7f7f7;
   padding: 1rem;
   margin: 2.5rem 0;
-  border-radius: 10px;
+  border-radius: 6px;
 `
 
 const Text = styled.p`
@@ -24,7 +23,3 @@ const Notice = props => {
 }
 
 export default Notice
-
-Notice.propTypes = {
-  children: PropTypes.array
-}
