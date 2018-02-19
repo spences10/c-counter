@@ -6,6 +6,7 @@
     "axios": "0.17.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-helmet": "5.2.0",
     "react-scripts": "1.1.1",
     "styled-components": "3.1.6"
   },
@@ -30,11 +31,7 @@
     "alias:prod":
       "now alias c-counter.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN",
-    "release": "release-it",
-    "local:build:deploy":
-      "npm run clean && npm run build && now c-counter/",
-    "pause":
-      "node -e \"((time) => new Promise((resolve) => setTimeout(resolve, time)))(process.argv[1]).then(() => process.exit(0))\" 3000"
+    "release": "release-it"
   },
   "pre-commit": "npm run format",
   "main": "index.js",
