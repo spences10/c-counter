@@ -19,6 +19,7 @@ script:
   - npm i -g now@canary
   - npm run build
   - npm run deploy:now
+  - now ls | head -6
   
 after_script: 
   - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi 
