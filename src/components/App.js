@@ -93,7 +93,8 @@ class App extends React.Component {
       limit: 3,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
       timeNow: formatTime(new Date()),
-      timeNext: ''
+      timeNext: '',
+      currentSearch: ''
     }
 
     // In ES6 classes the constructor takes the place of
@@ -104,6 +105,7 @@ class App extends React.Component {
 
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
     this.handleLimitChange = this.handleLimitChange.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleCurrencyChange(e) {
@@ -125,6 +127,24 @@ class App extends React.Component {
     })
   }
 
+  handleSearch(e) {
+    const regex = new RegExp(e.target.value, 'gi')
+    this.setState({
+      data: this.state.data.filter(
+        item => item.name.match(regex) || item.symbol.match(regex)
+      ),
+      currentSearch: e.target.value
+    })
+  }
+
+  filterData() {
+    this.setState({
+      data: this.state.data.filter(item =>
+        item.name.match(this.state.currentSearch)
+      )
+    })
+  }
+
   apiUrl() {
     if (arguments.length === 0 || !arguments[0]) {
       return `${this.state.apiUrl}?convert=GBP&limit=3`
@@ -141,6 +161,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
+      if (!this.state.data[0]) return
       const { last_updated } = this.state.data[0]
 
       const timeNow = formatTime(new Date())
@@ -181,7 +202,8 @@ class App extends React.Component {
         <Quote
           currency={this.state.currency}
           handleCurrencyChange={this.handleCurrencyChange}
-          handleLimitChange={this.handleLimitChange}>
+          handleLimitChange={this.handleLimitChange}
+          handleSearch={this.handleSearch}>
           Cryptocurrency tickers
         </Quote>
         <CryptoWrapper>
