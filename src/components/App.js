@@ -113,7 +113,11 @@ class App extends React.Component {
     const currency = e.target.value
     const url = this.apiUrl(currency, this.state.limit)
     fetchCryptocurrencyData(url).then(result => {
-      this.setState({ data: result.data, currency })
+      this.setState({
+        data: result.data,
+        results: result.data,
+        currency
+      })
     })
   }
 
@@ -122,34 +126,16 @@ class App extends React.Component {
     const url = this.apiUrl(this.state.currency, limit)
     fetchCryptocurrencyData(url).then(result => {
       // set limit with result data
-      this.setState({ data: result.data, limit })
+      this.setState({
+        data: result.data,
+        results: result.data,
+        limit
+      })
     })
   }
 
   handleSearch(e) {
     const regex = new RegExp(e.target.value, 'gi')
-    const newData = this.state.data
-    // let updatedList = this.state.data
-    // updatedList = updatedList.filter(item => {
-    //   return (
-    //     item.toLowerCase().search(e.target.value.toLowerCase()) !== -1
-    //   )
-    // })
-    //
-    // this.setState({ results: updatedList })
-    // Object.keys(newData).filter(key => {
-    //   console.log('====================')
-    //   console.log(key)
-    //   console.log('====================')
-    // })
-    //
-    // this.setState({
-    //   data: newData.filter(
-    //     item => item.name.match(regex) || item.symbol.match(regex)
-    //   ),
-    //   currentSearch: e.target.value
-    // })
-    //
     this.setState({
       results: this.state.data.filter(
         item => item.name.match(regex) || item.symbol.match(regex)
