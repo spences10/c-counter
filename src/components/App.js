@@ -89,6 +89,7 @@ class App extends React.Component {
 
     this.state = {
       data: [],
+      results: [], // state to use for filtering data
       currency: 'GBP',
       limit: 3,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
@@ -100,7 +101,7 @@ class App extends React.Component {
     // In ES6 classes the constructor takes the place of
     // componentWillMount. 👍
     fetchCryptocurrencyData(this.apiUrl()).then(result => {
-      this.setState({ data: result.data })
+      this.setState({ data: result.data, results: result.data })
     })
 
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
@@ -112,8 +113,6 @@ class App extends React.Component {
     const currency = e.target.value
     const url = this.apiUrl(currency, this.state.limit)
     fetchCryptocurrencyData(url).then(result => {
-      // add reduce on the data for the requested currency
-      // set currency with result data
       this.setState({ data: result.data, currency })
     })
   }
@@ -128,25 +127,35 @@ class App extends React.Component {
   }
 
   handleSearch(e) {
-    // const regex = new RegExp(e.target.value, 'gi')
-    // const newData = this.state.data
+    const regex = new RegExp(e.target.value, 'gi')
+    const newData = this.state.data
+    // let updatedList = this.state.data
+    // updatedList = updatedList.filter(item => {
+    //   return (
+    //     item.toLowerCase().search(e.target.value.toLowerCase()) !== -1
+    //   )
+    // })
+    //
+    // this.setState({ results: updatedList })
     // Object.keys(newData).filter(key => {
     //   console.log('====================')
     //   console.log(key)
     //   console.log('====================')
     // })
+    //
     // this.setState({
     //   data: newData.filter(
     //     item => item.name.match(regex) || item.symbol.match(regex)
     //   ),
     //   currentSearch: e.target.value
     // })
-    // this.setState({
-    //   data: this.state.data.filter(
-    //     item => item.name.match(regex) || item.symbol.match(regex)
-    //   ),
-    //   currentSearch: e.target.value
-    // })
+    //
+    this.setState({
+      results: this.state.data.filter(
+        item => item.name.match(regex) || item.symbol.match(regex)
+      ),
+      currentSearch: e.target.value
+    })
   }
 
   filterData() {
@@ -219,7 +228,7 @@ class App extends React.Component {
           Cryptocurrency tickers
         </Quote>
         <CryptoWrapper>
-          {this.state.data.map((items, index) => {
+          {this.state.results.map((items, index) => {
             // console.log('====================')
             // console.log(items)
             // console.log('====================')
