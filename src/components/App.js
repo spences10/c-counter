@@ -88,9 +88,9 @@ class App extends React.Component {
     super()
 
     this.state = {
-      data: [],
+      apiData: [], // the api data
       results: [], // state to use for filtering data
-      currency: 'GBP',
+      currency: 'GBP', // default to GBP
       limit: 3,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
       timeNow: formatTime(new Date()),
@@ -101,7 +101,7 @@ class App extends React.Component {
     // In ES6 classes the constructor takes the place of
     // componentWillMount. 👍
     fetchCryptocurrencyData(this.apiUrl()).then(result => {
-      this.setState({ data: result.data, results: result.data })
+      this.setState({ apiData: result.data, results: result.data })
     })
 
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
@@ -114,7 +114,7 @@ class App extends React.Component {
     const url = this.apiUrl(currency, this.state.limit)
     fetchCryptocurrencyData(url).then(result => {
       this.setState({
-        data: result.data,
+        apiData: result.data,
         results: result.data,
         currency
       })
@@ -127,7 +127,7 @@ class App extends React.Component {
     fetchCryptocurrencyData(url).then(result => {
       // set limit with result data
       this.setState({
-        data: result.data,
+        apiData: result.data,
         results: result.data,
         limit
       })
@@ -146,7 +146,7 @@ class App extends React.Component {
 
   filterData() {
     this.setState({
-      data: this.state.data.filter(item =>
+      apiData: this.state.data.filter(item =>
         item.name.match(this.state.currentSearch)
       )
     })
@@ -168,8 +168,8 @@ class App extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      if (!this.state.data[0]) return
-      const { last_updated } = this.state.data[0]
+      if (!this.state.apiData[0]) return
+      const { last_updated } = this.state.apiData[0]
 
       const timeNow = formatTime(new Date())
       const timeNext = formatTime(
@@ -188,7 +188,7 @@ class App extends React.Component {
           this.apiUrl(this.state.currency, this.state.limit)
         ).then(result => {
           this.setState({
-            data: result.data,
+            apiData: result.data,
             limit: this.state.limit,
             timeNow,
             timeNext
