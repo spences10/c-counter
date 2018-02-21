@@ -128,13 +128,25 @@ class App extends React.Component {
   }
 
   handleSearch(e) {
-    const regex = new RegExp(e.target.value, 'gi')
-    this.setState({
-      data: this.state.data.filter(
-        item => item.name.match(regex) || item.symbol.match(regex)
-      ),
-      currentSearch: e.target.value
-    })
+    // const regex = new RegExp(e.target.value, 'gi')
+    // const newData = this.state.data
+    // Object.keys(newData).filter(key => {
+    //   console.log('====================')
+    //   console.log(key)
+    //   console.log('====================')
+    // })
+    // this.setState({
+    //   data: newData.filter(
+    //     item => item.name.match(regex) || item.symbol.match(regex)
+    //   ),
+    //   currentSearch: e.target.value
+    // })
+    // this.setState({
+    //   data: this.state.data.filter(
+    //     item => item.name.match(regex) || item.symbol.match(regex)
+    //   ),
+    //   currentSearch: e.target.value
+    // })
   }
 
   filterData() {
