@@ -6,6 +6,7 @@ import Quote from './Quote'
 import Notice from './Notice'
 
 import Cryptocurrency from './Cryptocurrency'
+import ContentLoader from './ContentLoader'
 
 import {
   fetchCryptocurrencyData,
@@ -91,7 +92,7 @@ class App extends React.Component {
       apiData: [], // the api data
       results: [], // state to use for filtering data
       currency: 'GBP', // default to GBP
-      limit: 3,
+      limit: 5000,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
       timeNow: formatTime(new Date()),
       timeNext: '',
@@ -180,10 +181,6 @@ class App extends React.Component {
       this.setState({ timeNow, timeNext })
 
       if (timeNow > timeNext) {
-        // console.log('====================')
-        // console.log('updating')
-        // console.log('====================')
-
         fetchCryptocurrencyData(
           this.apiUrl(this.state.currency, this.state.limit)
         ).then(result => {
@@ -195,11 +192,6 @@ class App extends React.Component {
           })
         })
       }
-      // console.log('====================')
-      // console.log('time now :', timeNow)
-      // console.log('time next:', timeNext)
-      // console.log(timeNow > timeNext)
-      // console.log('====================')
     }, 10 * 1000)
   }
 
@@ -215,9 +207,6 @@ class App extends React.Component {
         </Quote>
         <CryptoWrapper>
           {this.state.results.map((items, index) => {
-            // console.log('====================')
-            // console.log(items)
-            // console.log('====================')
             return (
               <Cryptocurrency
                 key={index}
@@ -227,7 +216,6 @@ class App extends React.Component {
             )
           })}
         </CryptoWrapper>
-        {/* <Tickers /> */}
         <Notice>
           Information updated every 5 minutes courtesy of{' '}
           <StyledLink
@@ -237,7 +225,6 @@ class App extends React.Component {
             coinmarketcap.com
           </StyledLink>
         </Notice>
-        {/* <Button>Hey, click me!</Button> */}
       </PageContainer>
     )
   }
