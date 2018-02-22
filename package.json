@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "react": "^16.2.0",
+    "react-content-loader": "3.1.1",
     "react-dom": "^16.2.0",
     "react-helmet": "5.2.0",
     "react-scripts": "1.1.1",
@@ -28,8 +29,7 @@
     "clean": "rm -rf build/ && rm -rf c-counter/",
     "deploy:now": "now c-counter/ --token $NOW_TOKEN",
     "alias:dev": "now alias c-counter.now.sh --token $NOW_TOKEN",
-    "alias:prod":
-      "now alias c-counter.scottspence.me --token $NOW_TOKEN",
+    "alias:prod": "now alias c-counter.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN",
     "release": "release-it"
   },
@@ -40,8 +40,7 @@
     "url": "git+https://github.com/spences10/c-counter.git"
   },
   "keywords": [],
-  "author":
-    "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/c-counter/issues"
