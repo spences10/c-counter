@@ -137,7 +137,7 @@ class App extends React.Component {
   handleSearch(e) {
     const regex = new RegExp(e.target.value, 'gi')
     this.setState({
-      results: this.state.data.filter(
+      results: this.state.apiData.filter(
         item => item.name.match(regex) || item.symbol.match(regex)
       ),
       currentSearch: e.target.value
