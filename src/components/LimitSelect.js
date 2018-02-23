@@ -33,7 +33,6 @@ class CurrencySelect extends React.Component {
         <SelectOpt value="10">10</SelectOpt>
         <SelectOpt value="50">50</SelectOpt>
         <SelectOpt value="100">100</SelectOpt>
-        <SelectOpt value="500">500</SelectOpt>
       </Select>
     )
   }
