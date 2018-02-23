@@ -94,7 +94,7 @@ class App extends React.Component {
       // apiDataGBP: [],
       // apiDataEUR: [],
       currency: 'GBP', // default to GBP
-      limit: 50,
+      limit: 100,
       filteredLimit: 3,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
       timeNow: formatTime(new Date()),
