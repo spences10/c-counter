@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import NavBar from './NavBar'
-import head from 'next/dist/lib/head'
 
 const Layout = props => (
   <div>
