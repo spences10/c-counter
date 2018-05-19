@@ -1,18 +1,21 @@
 import fetch from 'isomorphic-unfetch'
 
 import Layout from '../components/Layout'
+import { CryptoDataProvider } from '../contexts/CryptoDataContext'
 
 const Index = ({ cryptoData }) => (
-  <Layout>
-    <div>
-      <h1>Hello</h1>
+  <CryptoDataProvider>
+    <Layout>
       <div>
-        {Object.keys(cryptoData).map((key, index) => {
-          return <li>{key}</li>
-        })}
+        <h1>Hello</h1>
+        <div>
+          {Object.keys(cryptoData).map((key, index) => {
+            return <li>{key}</li>
+          })}
+        </div>
       </div>
-    </div>
-  </Layout>
+    </Layout>
+  </CryptoDataProvider>
 )
 
 Index.getInitialProps = async function() {
