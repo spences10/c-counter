@@ -6,8 +6,9 @@
   "dependencies": {
     "i": "0.3.6",
     "next": "6.0.3",
+    "react": "16.3.2",
     "react-dom": "16.3.2",
-    "react": "16.3.2"
+    "styled-components": "3.2.6"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,8 +16,7 @@
     "build": "next build",
     "start": "next start"
   },
-  "author":
-    "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/c-counter.git"
