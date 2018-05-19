@@ -3,10 +3,11 @@ import Link from 'next/link'
 const NavBar = () => (
   <ul>
     <li>
-      <Link href="" />
-      <Link href="page 2" />
+      <Link href="/">Home</Link>
     </li>
-    <li />
+    <li>
+      <Link href="page2">Page 2</Link>
+    </li>
   </ul>
 )
 

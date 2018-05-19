@@ -1,11 +1,9 @@
-import Link from 'next/link'
+import NavBar from '../components/NavBar'
 
 const Index = () => (
   <div>
+    <NavBar />
     <h1>Helle</h1>
-    <p>
-      <Link href="page2">Page 2</Link>
-    </p>
   </div>
 )
 export default Index
