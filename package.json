@@ -1,6 +1,5 @@
 {
   "name": "c-counter",
-<<<<<<< HEAD
   "version": "0.1.183",
   "private": true,
   "dependencies": {
@@ -16,20 +15,8 @@
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1",
     "release-it": "12.3.6"
-=======
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "i": "0.3.6",
-    "next": "6.0.3",
-    "react-dom": "16.3.2",
-    "react": "16.3.2"
->>>>>>> start from scratch with next
   },
-  "devDependencies": {},
   "scripts": {
-<<<<<<< HEAD
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,26 +35,16 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-=======
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "author":
-    "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
->>>>>>> start from scratch with next
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/c-counter.git"
   },
   "keywords": [],
+  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/c-counter/issues"
   },
-<<<<<<< HEAD
   "homepage": "https://c-counter.",
   "description": ""
-=======
-  "homepage": "https://c-counter.now.sh"
->>>>>>> start from scratch with next
 }
