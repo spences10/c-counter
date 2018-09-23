@@ -1,21 +1,21 @@
 {
   "name": "c-counter",
-  "version": "0.1.30",
+  "version": "0.1.35",
   "private": true,
   "dependencies": {
     "axios": "0.18.0",
-    "react": "16.5.1",
-    "react-dom": "16.5.1",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
     "react-helmet": "5.2.0",
     "react-scripts": "1.1.5",
-    "styled-components": "3.4.6"
+    "styled-components": "3.4.9"
   },
   "devDependencies": {
     "eslint": "5.6.0",
     "eslint-plugin-react": "7.11.1",
     "husky": "0.14.3",
-    "prettier": "1.14.2",
-    "pretty-quick": "1.6.0",
+    "prettier": "1.14.3",
+    "pretty-quick": "1.7.0",
     "release-it": "7.6.1"
   },
   "scripts": {
