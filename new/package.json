@@ -1,17 +1,30 @@
 {
-  "name": "new",
-  "version": "0.1.0",
+  "name": "c-counter",
+  "version": "0.1.41",
   "private": true,
   "dependencies": {
+    "axios": "0.18.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5"
+    "react-helmet": "5.2.0",
+    "react-scripts": "2.0.5",
+    "styled-components": "3.4.10"
+  },
+  "devDependencies": {
+    "husky": "1.1.1",
+    "prettier": "1.14.3",
+    "pretty-quick": "1.7.0",
+    "release-it": "7.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "pretty-quick",
+    "precommit": "pretty-quick --staged",
+    "clean": "rm -rf build/",
+    "release": "release-it"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +34,17 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spences10/c-counter.git"
+  },
+  "keywords": [],
+  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spences10/c-counter/issues"
+  },
+  "homepage": "https://c-counter.",
+  "description": ""
 }
