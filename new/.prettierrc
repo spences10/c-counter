@@ -1,0 +1,29 @@
+{
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true,
+  "printWidth": 70,
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "useTabs": false,
+  "proseWrap": "always",
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": ".eslintrc.json",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": ".release-it.json",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "package.json",
+      "options": { "parser": "json" }
+    }
+  ]
+}
