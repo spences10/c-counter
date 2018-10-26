@@ -13,6 +13,8 @@ import {
   secondsToMilliseconds
 } from '../util/helpers'
 
+import { GlobalStyle } from '../theme/globalStyle'
+
 import { media, StyledLink } from '../theme/globalStyle'
 
 const PageContainer = styled.div`
@@ -206,6 +208,7 @@ class App extends React.Component {
   render() {
     return (
       <PageContainer>
+        <GlobalStyle />
         <Quote
           currency={this.state.currency}
           handleCurrencyChange={this.handleCurrencyChange}
