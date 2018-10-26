@@ -1,4 +1,4 @@
-import styled, { injectGlobal, css } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 export const theme = {
   black: '#7d95b6',
@@ -25,7 +25,7 @@ export const theme = {
   jsYellow: '#f7e018' // JS yellow
 }
 
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Bungee+Inline');
 
   *, *:before, *:after {
