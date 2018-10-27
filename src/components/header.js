@@ -9,7 +9,7 @@ import CurrencySearch from './CurrencySearch'
 import { media } from '../theme/globalStyle'
 
 const StyledQuote = styled.blockquote`
-  grid-area: q;
+  grid-area: title;
   color: ${props => props.theme.dark};
   font-size: 2.5rem;
   font-family: Open Sans;
@@ -25,17 +25,17 @@ const Separator = styled.hr`
   border: none;
 `
 
-const QuoteWrapper = styled.div`
-  grid-area: h;
+const QuoteWrapper = styled.header`
+  grid-area: header;
   margin: 2rem 0;
 `
 
 const QuoteCurrencyWrapper = styled.div`
   display: grid;
 
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 'q c l';
+  grid-template-areas: 'title currency results search';
 
   margin: 2rem 0;
 
@@ -68,7 +68,7 @@ const QuoteCurrencyWrapper = styled.div`
   `};
 `
 
-class Quote extends React.Component {
+class Header extends React.Component {
   render() {
     return (
       <QuoteWrapper>
@@ -89,9 +89,9 @@ class Quote extends React.Component {
   }
 }
 
-export default Quote
+export default Header
 
-Quote.propTypes = {
+Header.propTypes = {
   children: PropTypes.string,
   handleCurrencyChange: PropTypes.func,
   currency: PropTypes.string,
