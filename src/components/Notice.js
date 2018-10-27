@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledNotice = styled.div`
-  grid-area: f;
+  grid-area: footer;
   border: solid 3px ${props => props.theme.dark};
   background: #f7f7f7;
   padding: 1rem;
@@ -15,13 +15,11 @@ const Text = styled.p`
   margin: 0;
 `
 
-const Notice = props => {
-  return (
-    <StyledNotice>
-      <Text>{props.children}</Text>
-    </StyledNotice>
-  )
-}
+const Notice = props => (
+  <StyledNotice>
+    <Text>{props.children}</Text>
+  </StyledNotice>
+)
 
 export default Notice
 

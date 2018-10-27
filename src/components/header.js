@@ -9,7 +9,7 @@ import CurrencySearch from './CurrencySearch'
 import { media } from '../theme/globalStyle'
 
 const StyledQuote = styled.blockquote`
-  grid-area: q;
+  grid-area: title;
   color: ${props => props.theme.dark};
   font-size: 2.5rem;
   font-family: Open Sans;
@@ -25,50 +25,52 @@ const Separator = styled.hr`
   border: none;
 `
 
-const QuoteWrapper = styled.div`
-  grid-area: h;
+const QuoteWrapper = styled.header`
+  grid-area: header;
   margin: 2rem 0;
 `
 
 const QuoteCurrencyWrapper = styled.div`
+  margin: 2rem 0;
   display: grid;
 
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: 'q c l';
-
-  margin: 2rem 0;
-
+  grid-template-areas:
+    'title    .     .      .'
+    'currency limit search .';
   ${media.giant`
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-      'q .'
-      'c l';
+      'title    .     .      .'
+      'currency limit search .';
   `};
   ${media.desktop`
-    grid-template-columns: 1f 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
-      'q .'
-      'c l';
-
+      'title    .     .      .'
+      'currency limit search .';
   `};
   ${media.tablet`
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
     grid-template-areas: 
-      'q'
-      'c'
-      'l';
+      'title'
+      'currency'
+      'limit'
+      'search';
   `};
   ${media.phone`
+    grid-template-columns: repeat(1, 1fr);
     grid-template-areas: 
-      'q'
-      'c'
-      'l';
+      'title' 
+      'currency'
+      'limit'
+      'search';
   `};
 `
 
-class Quote extends React.Component {
+class Header extends React.Component {
   render() {
     return (
       <QuoteWrapper>
@@ -89,9 +91,9 @@ class Quote extends React.Component {
   }
 }
 
-export default Quote
+export default Header
 
-Quote.propTypes = {
+Header.propTypes = {
   children: PropTypes.string,
   handleCurrencyChange: PropTypes.func,
   currency: PropTypes.string,
