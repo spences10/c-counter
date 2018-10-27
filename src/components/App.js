@@ -26,42 +26,42 @@ const PageContainer = styled.div`
     'header  header  header'
     'content content content '
     'footer  footer  footer ';
-  /* ${media.giant`
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: 
-      '. . h h h h h h . .'
-      '. . c c c c c c . .'
-      '. . f f f f f f . .';
-    background: goldenrod;
-  `};
-  ${media.desktop`
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: 
-      '. h h h h h h .'
-      '. c c c c c c .'
-      '. f f f f f f .';
-    background: dodgerblue;
-  `};
-  ${media.tablet`
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: 
-      '. h h h h .'
-      '. c c c c .'
-      '. f f f f .';
-    background: mediumseagreen;
-  `};
-  ${media.phone`
+  ${media.giant`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-      '. h .'
-      '. c .'
-      '. f .';
-      background: palevioletred;
-  `}; */
+      'header  header  header'
+      'content content content '
+      'footer  footer  footer ';
+    background: goldenrod;
+  `};
+  ${media.desktop`
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      'header  header  header'
+      'content content content '
+      'footer  footer  footer ';
+    background: dodgerblue;
+  `};
+  ${media.tablet`
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      'header  header '
+      'content content'
+      'footer  footer ';
+    background: mediumseagreen;
+  `};
+  ${media.phone`
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      'header'
+      'content'
+      'footer';
+    background: palevioletred;
+  `};
 `
 
 const CryptoWrapper = styled.div`
@@ -71,18 +71,18 @@ const CryptoWrapper = styled.div`
   grid-template-columns: repeat(3, auto);
   grid-template-rows: auto;
 
-  /* ${media.giant`
+  ${media.giant`
     grid-template-columns: repeat(3, 1fr);
   `};
   ${media.desktop`
     grid-template-columns: repeat(2, 1fr);
   `};
   ${media.tablet`
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   `};
   ${media.phone`
     grid-template-columns: repeat(1, 1fr);
-  `}; */
+  `};
 `
 
 class App extends React.Component {
