@@ -9,7 +9,7 @@ const SearchInput = styled.input.attrs({
   margin: 0rem 0.5rem;
   padding: 0rem 0.5rem;
 
-  grid-area: s;
+  grid-area: search;
   width: 100%;
   text-align: center;
 

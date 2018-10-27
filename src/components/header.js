@@ -31,40 +31,42 @@ const QuoteWrapper = styled.header`
 `
 
 const QuoteCurrencyWrapper = styled.div`
+  margin: 2rem 0;
   display: grid;
 
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: 'title currency results search';
-
-  margin: 2rem 0;
-
+  grid-template-areas:
+    'title    .     .      .'
+    'currency limit search .';
   ${media.giant`
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-      'q .'
-      'c l';
+      'title    .     .      .'
+      'currency limit search .';
   `};
   ${media.desktop`
-    grid-template-columns: 1f 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
-      'q .'
-      'c l';
-
+      'title    .     .      .'
+      'currency limit search .';
   `};
   ${media.tablet`
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
     grid-template-areas: 
-      'q'
-      'c'
-      'l';
+      'title'
+      'currency'
+      'limit'
+      'search';
   `};
   ${media.phone`
+    grid-template-columns: repeat(1, 1fr);
     grid-template-areas: 
-      'q'
-      'c'
-      'l';
+      'title' 
+      'currency'
+      'limit'
+      'search';
   `};
 `
 
