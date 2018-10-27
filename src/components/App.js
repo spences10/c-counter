@@ -20,7 +20,7 @@ import { media, StyledLink } from '../theme/globalStyle'
 const PageContainer = styled.div`
   display: grid;
   /* grid-gap: 20px; */
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
     'header  header  header'
@@ -29,7 +29,7 @@ const PageContainer = styled.div`
   margin: 2.5rem;
   padding: 2.5rem;
   ${media.giant`
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
       'header  header  header'
@@ -82,14 +82,14 @@ const CryptoWrapper = styled.div`
   display: grid;
   grid-area: content;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   grid-template-rows: auto;
 
   ${media.giant`
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   `};
   ${media.desktop`
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   `};
   ${media.tablet`
     grid-template-columns: repeat(1, 1fr);
