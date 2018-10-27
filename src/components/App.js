@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // import Button from './Button'
-import Quote from './Quote'
+import Header from './header'
 import Notice from './Notice'
 
 import Cryptocurrency from './Cryptocurrency'
@@ -209,13 +209,13 @@ class App extends React.Component {
     return (
       <PageContainer>
         <GlobalStyle />
-        <Quote
+        <Header
           currency={this.state.currency}
           handleCurrencyChange={this.handleCurrencyChange}
           handleLimitChange={this.handleLimitChange}
           handleSearch={this.handleSearch}>
           Cryptocurrency tickers
-        </Quote>
+        </Header>
         <CryptoWrapper>
           {this.state.results.map((items, index) => {
             // console.log('====================')
