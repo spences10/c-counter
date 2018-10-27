@@ -6,11 +6,11 @@ const SearchInput = styled.input.attrs({
   type: props => props.type || 'text',
   placeholder: props => props.placeholder
 })`
-  margin: 0rem 0.5rem;
+  margin: 2rem 0.5rem;
   padding: 0rem 0.5rem;
 
   grid-area: search;
-  width: 100%;
+  width: 50%;
   text-align: center;
 
   font-family: Roboto;
