@@ -26,6 +26,8 @@ const PageContainer = styled.div`
     'header  header  header'
     'content content content '
     'footer  footer  footer ';
+  margin: 2.5rem;
+  padding: 2.5rem;
   ${media.giant`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -33,7 +35,10 @@ const PageContainer = styled.div`
       'header  header  header'
       'content content content '
       'footer  footer  footer ';
-    background: goldenrod;
+    margin: 2rem;
+    padding: 2rem;
+
+    /* background: goldenrod; */
   `};
   ${media.desktop`
     grid-template-columns: repeat(3, 1fr);
@@ -42,7 +47,10 @@ const PageContainer = styled.div`
       'header  header  header'
       'content content content '
       'footer  footer  footer ';
-    background: dodgerblue;
+      margin: 1.5rem;
+      padding: 1.5rem;
+
+    /* background: dodgerblue; */
   `};
   ${media.tablet`
     grid-template-columns: repeat(2, 1fr);
@@ -51,7 +59,10 @@ const PageContainer = styled.div`
       'header  header '
       'content content'
       'footer  footer ';
-    background: mediumseagreen;
+    margin: 1rem;
+    padding: 1rem;
+
+    /* background: mediumseagreen; */
   `};
   ${media.phone`
     grid-template-columns: repeat(1, 1fr);
@@ -60,7 +71,10 @@ const PageContainer = styled.div`
       'header'
       'content'
       'footer';
-    background: palevioletred;
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    /* background: palevioletred; */
   `};
 `
 
