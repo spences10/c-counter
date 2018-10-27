@@ -20,12 +20,12 @@ import { media, StyledLink } from '../theme/globalStyle'
 const PageContainer = styled.div`
   display: grid;
   /* grid-gap: 20px; */
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    '. . h h h h h h h h . .'
-    '. . c c c c c c c c . .'
-    '. . f f f f f f f f . .';
+    'header  header  header'
+    'content content content '
+    'footer  footer  footer ';
   /* ${media.giant`
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: auto;
@@ -66,7 +66,7 @@ const PageContainer = styled.div`
 
 const CryptoWrapper = styled.div`
   display: grid;
-  grid-area: c;
+  grid-area: content;
   grid-gap: 20px;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: auto;
