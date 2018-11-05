@@ -6,7 +6,7 @@ const Select = styled.select`
   margin: 2rem 0.5rem;
   padding: 0rem 0.5rem;
 
-  grid-area: c;
+  grid-area: currency;
   width: 50%;
   text-align: center;
 
