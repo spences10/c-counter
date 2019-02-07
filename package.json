@@ -1,18 +1,18 @@
 {
   "name": "c-counter",
-  "version": "0.1.110",
+  "version": "0.1.113",
   "private": true,
   "dependencies": {
     "axios": "0.18.0",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
+    "react": "16.8.1",
+    "react-dom": "16.8.1",
     "react-helmet": "5.2.0",
     "react-scripts": "2.1.3",
     "styled-components": "4.1.3"
   },
   "devDependencies": {
     "husky": "1.3.1",
-    "prettier": "1.16.3",
+    "prettier": "1.16.4",
     "pretty-quick": "1.10.0",
     "release-it": "10.0.7"
   },
