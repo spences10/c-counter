@@ -1,11 +1,11 @@
 {
   "name": "c-counter",
-  "version": "0.1.125",
+  "version": "0.1.126",
   "private": true,
   "dependencies": {
     "axios": "0.18.0",
-    "react": "16.8.5",
-    "react-dom": "16.8.5",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
     "react-helmet": "5.2.0",
     "react-scripts": "2.1.8",
     "styled-components": "4.2.0"
