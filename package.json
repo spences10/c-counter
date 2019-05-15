@@ -1,6 +1,6 @@
 {
   "name": "c-counter",
-  "version": "0.1.147",
+  "version": "0.1.148",
   "private": true,
   "dependencies": {
     "axios": "0.18.0",
@@ -14,7 +14,7 @@
     "husky": "2.3.0",
     "prettier": "1.17.1",
     "pretty-quick": "1.10.0",
-    "release-it": "12.1.0"
+    "release-it": "12.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
