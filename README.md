@@ -6,6 +6,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d8f7f555-1be0-45f6-b46c-1d58fd175301/deploy-status)](https://app.netlify.com/sites/suspicious-aryabhata-85b2b3/deploys)
 
+![gif demo](./demo.gif)
+
 Built with:
 
 - styled-components
