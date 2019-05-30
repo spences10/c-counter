@@ -1,9 +1,9 @@
 {
   "name": "c-counter",
-  "version": "0.1.151",
+  "version": "0.1.152",
   "private": true,
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.1",
