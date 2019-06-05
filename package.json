@@ -1,6 +1,6 @@
 {
   "name": "c-counter",
-  "version": "0.1.153",
+  "version": "0.1.154",
   "private": true,
   "dependencies": {
     "axios": "0.19.0",
@@ -11,7 +11,7 @@
     "styled-components": "4.2.1"
   },
   "devDependencies": {
-    "husky": "2.3.0",
+    "husky": "2.4.0",
     "prettier": "1.17.1",
     "pretty-quick": "1.11.0",
     "release-it": "12.2.2"
