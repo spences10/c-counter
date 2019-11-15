@@ -12,6 +12,7 @@ exports.sourceNodes = async ({ actions }) => {
 
   const fetchCoinloreData = () =>
     axios.get('https://api.coinlore.com/api/tickers/')
+
   // await for results
   const res = await fetchCoinloreData()
 

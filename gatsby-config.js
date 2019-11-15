@@ -1,6 +1,6 @@
 const siteMetadata = {
-  title: `Gatsby Data Fetching`,
-  description: `Data fetching with Gatsby at build and runtime`,
+  title: `C-Counter`,
+  description: `Crypto currency tickers`,
   author: `@spences10`,
 }
 
@@ -27,11 +27,8 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
