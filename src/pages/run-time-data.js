@@ -27,7 +27,7 @@ export default () => {
     )
   return (
     <Layout>
-      <h2>{runTimeData.queryArtists[0].name}</h2>
+      {/* <h2>{runTimeData.queryArtists[0].name}</h2>
       <img
         height="300px"
         src={runTimeData.queryArtists[0].image}
@@ -38,7 +38,7 @@ export default () => {
           <h3>{album.name}</h3>
           <img height="300px" src={album.image} alt={album.name} />
         </div>
-      ))}
+      ))} */}
       <Dump GraphQLResponse={runTimeData} />
     </Layout>
   )
