@@ -1,7 +1,7 @@
 import Dump from '@wesbos/dump'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Layout from '../components/layout'
+import { Layout } from '../components/layout'
 
 export default () => {
   const [runTimeData, setRunTimeData] = useState({})

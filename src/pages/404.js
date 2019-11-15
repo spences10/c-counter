@@ -1,6 +1,6 @@
 import React from 'react'
 import SEO from 'react-seo-component'
-import Layout from '../components/layout'
+import { Layout } from '../components/layout'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 
 export default () => {
