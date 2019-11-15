@@ -10,23 +10,8 @@ export default () => {
   useEffect(() => {
     async function getRunTimeData() {
       const res = await axios({
-        url: 'https://spotify-graphql-server.herokuapp.com/graphql',
+        url: 'https://api.coinlore.com/api/tickers/',
         method: 'post',
-        data: {
-          query: `
-            {
-              queryArtists(byName:"Andy C") {
-                name
-                id
-                image
-                albums {
-                  name
-                  image
-                }
-              }
-            }
-          `,
-        },
       })
       const { data } = res.data
       setRunTimeData(data)
