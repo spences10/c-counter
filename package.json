@@ -1,5 +1,6 @@
 {
   "name": "c-counter",
+<<<<<<< HEAD
   "version": "0.1.183",
   "private": true,
   "dependencies": {
@@ -15,8 +16,22 @@
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1",
     "release-it": "12.3.6"
+=======
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "i": "0.3.6",
+    "isomorphic-unfetch": "2.0.0",
+    "next": "6.0.3",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "styled-components": "3.2.6"
+>>>>>>> 274cbcd8fabde0aa4aa9502ee9aa84e925848153
   },
+  "devDependencies": {},
   "scripts": {
+<<<<<<< HEAD
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -35,11 +50,19 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+=======
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
+>>>>>>> 274cbcd8fabde0aa4aa9502ee9aa84e925848153
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/c-counter.git"
   },
   "keywords": [],
+<<<<<<< HEAD
   "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
   "license": "MIT",
   "bugs": {
@@ -47,4 +70,10 @@
   },
   "homepage": "https://c-counter.",
   "description": ""
+=======
+  "bugs": {
+    "url": "https://github.com/spences10/c-counter/issues"
+  },
+  "homepage": "https://c-counter.now.sh"
+>>>>>>> 274cbcd8fabde0aa4aa9502ee9aa84e925848153
 }
