@@ -27,18 +27,15 @@ export default () => {
     )
   return (
     <Layout>
-      {/* <h2>{runTimeData.queryArtists[0].name}</h2>
-      <img
-        height="300px"
-        src={runTimeData.queryArtists[0].image}
-        alt={runTimeData.queryArtists[0].name}
-      />
-      {runTimeData.queryArtists[0].albums.map(album => (
-        <div key={album.id}>
-          <h3>{album.name}</h3>
-          <img height="300px" src={album.image} alt={album.name} />
+      {/* <p>Data as at: {new Date(info.time * 1000).toISOString()}</p> */}
+      {/* <p>Total Coins: {info.coins_num}</p> */}
+      {runTimeData.map(coin => (
+        <div style={{ border: '1px solid black', marginTop: '2px' }}>
+          <p>Symbol: {coin.symbol}</p>
+          <p>Name: {coin.name}</p>
+          <p>Price USD: {coin.price_usd}</p>
         </div>
-      ))} */}
+      ))}
       <Dump GraphQLResponse={runTimeData} />
     </Layout>
   )
