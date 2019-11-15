@@ -1,40 +1,40 @@
 {
   "name": "c-counter",
-  "version": "0.1.0",
+  "version": "0.1.183",
   "private": true,
   "dependencies": {
-    "axios": "0.18.0",
-    "react": "^16.2.0",
-    "react-content-loader": "3.1.1",
-    "react-dom": "^16.2.0",
-    "react-helmet": "5.2.0",
-    "react-scripts": "1.1.1",
-    "styled-components": "3.1.6"
+    "axios": "0.19.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-helmet": "5.2.1",
+    "react-scripts": "3.1.2",
+    "styled-components": "4.4.0"
   },
   "devDependencies": {
-    "eslint": "4.18.0",
-    "eslint-plugin-react": "7.7.0",
-    "husky": "0.14.3",
-    "prettier": "1.10.2",
-    "pretty-quick": "1.4.1",
-    "release-it": "7.0.2"
+    "husky": "3.0.5",
+    "prettier": "1.18.2",
+    "pretty-quick": "1.11.1",
+    "release-it": "12.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build c-counter",
-    "test": "react-scripts test --env=jsdom",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
-    "clean": "rm -rf build/ && rm -rf c-counter/",
-    "deploy:now": "now c-counter/ --token $NOW_TOKEN",
-    "alias:dev": "now alias c-counter.now.sh --token $NOW_TOKEN",
-    "alias:prod": "now alias c-counter.scottspence.me --token $NOW_TOKEN",
-    "cleanup": "now rm c-counter --safe --yes --token $NOW_TOKEN",
+    "clean": "rm -rf build/",
     "release": "release-it"
   },
-  "pre-commit": "npm run format",
-  "main": "index.js",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/c-counter.git"
@@ -45,6 +45,6 @@
   "bugs": {
     "url": "https://github.com/spences10/c-counter/issues"
   },
-  "homepage": "https://c-counter.now.sh",
+  "homepage": "https://c-counter.",
   "description": ""
 }
