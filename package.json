@@ -1,79 +1,47 @@
 {
   "name": "c-counter",
-<<<<<<< HEAD
-  "version": "0.1.183",
   "private": true,
+  "description": "Crypto currency tickers",
+  "version": "0.2.0",
+  "author": "Scott Spence <yo@scottspence.dev>",
+  "keywords": [
+    "gatsby",
+    "crypto"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve"
+  },
   "dependencies": {
+    "@wesbos/dump": "0.1.1",
     "axios": "0.19.0",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-helmet": "5.2.1",
-    "react-scripts": "3.1.2",
-    "styled-components": "4.4.0"
+    "gatsby": "2.17.13",
+    "gatsby-image": "2.2.32",
+    "gatsby-plugin-manifest": "2.2.27",
+    "gatsby-plugin-offline": "3.0.20",
+    "gatsby-plugin-react-helmet": "3.1.14",
+    "gatsby-plugin-sharp": "2.2.38",
+    "gatsby-source-filesystem": "2.1.36",
+    "gatsby-source-graphql": "2.1.22",
+    "gatsby-transformer-sharp": "2.3.4",
+    "prop-types": "15.7.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-helmet": "5.2.1"
   },
   "devDependencies": {
-    "husky": "3.0.5",
-    "prettier": "1.18.2",
-    "pretty-quick": "1.11.1",
-    "release-it": "12.3.6"
-=======
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "i": "0.3.6",
-    "isomorphic-unfetch": "2.0.0",
-    "next": "6.0.3",
-    "react": "16.3.2",
-    "react-dom": "16.3.2",
-    "styled-components": "3.2.6"
->>>>>>> 274cbcd8fabde0aa4aa9502ee9aa84e925848153
+    "prettier": "1.19.1"
   },
-  "devDependencies": {},
-  "scripts": {
-<<<<<<< HEAD
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "pretty-quick",
-    "precommit": "pretty-quick --staged",
-    "clean": "rm -rf build/",
-    "release": "release-it"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-=======
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
->>>>>>> 274cbcd8fabde0aa4aa9502ee9aa84e925848153
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/c-counter.git"
   },
-  "keywords": [],
-<<<<<<< HEAD
-  "author": "Scott Spence <spences10apps@gmail.com> (https://scottspence.me/)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/c-counter/issues"
   },
-  "homepage": "https://c-counter.",
-  "description": ""
-=======
-  "bugs": {
-    "url": "https://github.com/spences10/c-counter/issues"
-  },
-  "homepage": "https://c-counter.now.sh"
->>>>>>> 274cbcd8fabde0aa4aa9502ee9aa84e925848153
+  "main": "index.js",
+  "homepage": "https://github.com/spences10/c-counter#readme"
 }
