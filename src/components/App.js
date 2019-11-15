@@ -6,6 +6,7 @@ import Header from './header'
 import Notice from './Notice'
 
 import Cryptocurrency from './Cryptocurrency'
+import ContentLoader from './ContentLoader'
 
 import {
   fetchCryptocurrencyData,
@@ -106,8 +107,11 @@ class App extends React.Component {
     this.state = {
       apiData: [], // the api data
       results: [], // state to use for filtering data
+      // apiDataGBP: [],
+      // apiDataEUR: [],
       currency: 'GBP', // default to GBP
-      limit: 3,
+      limit: 50,
+      filteredLimit: 3,
       apiUrl: 'https://api.coinmarketcap.com/v1/ticker/',
       timeNow: formatTime(new Date()),
       timeNext: '',
@@ -119,6 +123,14 @@ class App extends React.Component {
     fetchCryptocurrencyData(this.apiUrl()).then(result => {
       this.setState({ apiData: result.data, results: result.data })
     })
+
+    // let newApiData = Object.assign({}, this.state.apiData)
+
+    // fetchCryptocurrencyData(this.apiUrl('EUR')).then(result => {
+    //   newApiData = result.data
+    // })
+
+    // this.setState({ result: newApiData })
 
     this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
     this.handleLimitChange = this.handleLimitChange.bind(this)
@@ -138,14 +150,13 @@ class App extends React.Component {
   }
 
   handleLimitChange(e) {
+    const apiData = [...this.state.apiData]
     const limit = e.target.value
-    const url = this.apiUrl(this.state.currency, limit)
-    fetchCryptocurrencyData(url).then(result => {
-      // set limit with result data
-      this.setState({
-        apiData: result.data,
-        results: result.data,
-        limit
+    // rater than call the API each time, reduce the array
+    // use splice!
+    this.setState({
+      results: apiData.slice(0, limit).map(result => {
+        return result
       })
     })
   }
@@ -168,13 +179,21 @@ class App extends React.Component {
     })
   }
 
+  // initial load of data and updated on interval from
+  // componentDidMount
+  // USD is default so for EUR and GBP they need to be
+  // loaded and merged into the main state object
   apiUrl() {
     if (arguments.length === 0 || !arguments[0]) {
-      return `${this.state.apiUrl}?convert=GBP&limit=3`
+      return `${this.state.apiUrl}?convert=GBP&limit=${
+        this.state.limit
+      }`
     }
 
     if (!arguments[1]) {
-      return `${this.state.apiUrl}?convert=${arguments[0]}&limit=3`
+      return `${this.state.apiUrl}?convert=${arguments[0]}&limit=${
+        this.state.limit
+      }`
     }
 
     return `${this.state.apiUrl}?convert=${arguments[0]}&limit=${
@@ -196,26 +215,18 @@ class App extends React.Component {
       this.setState({ timeNow, timeNext })
 
       if (timeNow > timeNext) {
-        // console.log('====================')
-        // console.log('updating')
-        // console.log('====================')
-
         fetchCryptocurrencyData(
           this.apiUrl(this.state.currency, this.state.limit)
         ).then(result => {
           this.setState({
             apiData: result.data,
+            // limit: 5000,
             limit: this.state.limit,
             timeNow,
             timeNext
           })
         })
       }
-      // console.log('====================')
-      // console.log('time now :', timeNow)
-      // console.log('time next:', timeNext)
-      // console.log(timeNow > timeNext)
-      // console.log('====================')
     }, 10 * 1000)
   }
 
@@ -232,10 +243,8 @@ class App extends React.Component {
         </Header>
         <CryptoWrapper>
           {this.state.results.map((items, index) => {
-            // console.log('====================')
-            // console.log(items)
-            // console.log('====================')
             return (
+              // <ContentLoader />
               <Cryptocurrency
                 key={index}
                 {...items}
@@ -244,7 +253,6 @@ class App extends React.Component {
             )
           })}
         </CryptoWrapper>
-        {/* <Tickers /> */}
         <Notice>
           Information updated every 5 minutes courtesy of{' '}
           <StyledLink
@@ -254,7 +262,6 @@ class App extends React.Component {
             coinmarketcap.com
           </StyledLink>
         </Notice>
-        {/* <Button>Hey, click me!</Button> */}
       </PageContainer>
     )
   }
