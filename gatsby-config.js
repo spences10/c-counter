@@ -2,6 +2,11 @@ const siteMetadata = {
   title: `C-Counter`,
   description: `Crypto currency tickers`,
   author: `@spences10`,
+  image: `/gatsby-icon.png`,
+  favicon: `./static/gatsby-icon.png`,
+  siteUrl: `https://c-counter.scottspence.me/`,
+  siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
 }
 
 module.exports = {
@@ -18,7 +23,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: siteMetadata.favicon,
       },
     },
   ],

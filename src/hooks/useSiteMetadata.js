@@ -9,6 +9,11 @@ export const useSiteMetadata = () => {
             title
             description
             author
+            image
+            favicon
+            siteUrl
+            siteLanguage
+            siteLocale
           }
         }
       }
