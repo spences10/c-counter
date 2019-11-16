@@ -28,10 +28,7 @@ export default ({ data }) => {
 
   useEffect(() => {
     async function getRunTimeData() {
-      const res = await axios({
-        url: 'https://api.coinlore.com/api/tickers/',
-        method: 'post',
-      })
+      const res = await axios('https://api.coinlore.com/api/tickers/')
       const { data } = res.data
       setRunTimeData(data)
       setLoading(false)
@@ -56,31 +53,30 @@ export default ({ data }) => {
         // siteLocale={siteLocale}
         twitterUsername={author}
       />
-      <p>
-        {timeDifference > 10 ? (
-          <Gallery>
-            {runTimeData.map(coin => (
-              <CryptoCard
-                id={coin.id}
-                symbol={coin.symbol}
-                name={coin.name}
-                price={coin.price_usd}
-              />
-            ))}
-          </Gallery>
-        ) : (
-          <Gallery>
-            {coinData.map(coin => (
-              <CryptoCard
-                id={coin.id}
-                symbol={coin.symbol}
-                name={coin.name}
-                price={coin.price_usd}
-              />
-            ))}
-          </Gallery>
-        )}
-      </p>
+
+      {timeDifference > 10 ? (
+        <Gallery>
+          {runTimeData.map(coin => (
+            <CryptoCard
+              id={coin.id}
+              symbol={coin.symbol}
+              name={coin.name}
+              price={coin.price_usd}
+            />
+          ))}
+        </Gallery>
+      ) : (
+        <Gallery>
+          {coinData.map(coin => (
+            <CryptoCard
+              id={coin.id}
+              symbol={coin.symbol}
+              name={coin.name}
+              price={coin.price_usd}
+            />
+          ))}
+        </Gallery>
+      )}
     </Layout>
   )
 }
