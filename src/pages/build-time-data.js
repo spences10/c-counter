@@ -1,10 +1,11 @@
 import Dump from '@wesbos/dump'
 import React from 'react'
 import { Layout } from '../components/layout'
+import { Timer } from '../components/timer'
 
 export default ({ data }) => {
   const { info, data: coinData } = data.coinloreCoinlore
-  const buildTimeDate = new Date(info.time * 1000)
+  const buildTimeDate = new Date(info.time * 1000).toISOString()
   const buildTime = new Date(info.time * 1000)
     .toISOString()
     .slice(11, -8)
@@ -13,6 +14,7 @@ export default ({ data }) => {
     .slice(0, -14)
   return (
     <Layout>
+      <Timer />
       <p>
         Data as at: {buildDate} {buildTime}
       </p>
@@ -35,10 +37,6 @@ export default ({ data }) => {
 export const GatsbyQuery = graphql`
   query CoinloreQuery {
     coinloreCoinlore {
-      info {
-        coins_num
-        time
-      }
       data {
         symbol
         name
