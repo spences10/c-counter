@@ -1,22 +1,32 @@
-import Dump from '@wesbos/dump'
 import React from 'react'
+import styled from 'styled-components'
+import { CryptoCard } from '../components/crypto-card'
 import { Layout } from '../components/layout'
+
+export const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
+  display: 'grid',
+  gridTemplateColumns: `repeat(auto-fill, minmax(${minColumnWidth}px,1fr))`,
+  gridGap,
+})
+
+const Gallery = styled.div({
+  ...autoGrid(300, 5),
+})
 
 export default ({ data }) => {
   const { info, data: coinData } = data.coinloreCoinlore
   return (
     <Layout>
-      {coinData.map(coin => (
-        <div
-          key={coin.id}
-          style={{ border: '1px solid black', marginTop: '2px' }}
-        >
-          <p>Symbol: {coin.symbol}</p>
-          <p>Name: {coin.name}</p>
-          <p>Price USD: {coin.price_usd}</p>
-        </div>
-      ))}
-      <Dump info={info} GraphQLResponse={coinData} />
+      <Gallery>
+        {coinData.map(coin => (
+          <CryptoCard
+            id={coin.id}
+            symbol={coin.symbol}
+            name={coin.name}
+            price={coin.price_usd}
+          />
+        ))}
+      </Gallery>
     </Layout>
   )
 }
