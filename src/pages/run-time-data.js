@@ -28,8 +28,6 @@ export default () => {
 
   return (
     <Layout>
-      {/* <p>Data as at: {new Date(info.time * 1000).toISOString()}</p> */}
-      {/* <p>Total Coins: {info.coins_num}</p> */}
       {runTimeData.map(coin => (
         <div
           key={coin.id}

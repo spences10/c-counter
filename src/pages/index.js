@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { CryptoCard } from '../components/crypto-card'
 import { Layout } from '../components/layout'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
+import { useTimeDifference } from '../hooks/useTimeDifference'
 
 export const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
   display: 'grid',
@@ -12,13 +13,13 @@ export const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
 })
 
 const Gallery = styled.div({
-  ...autoGrid(300, 5),
+  ...autoGrid(220, 20),
 })
 
 export default ({ data }) => {
   const { title, description, author } = useSiteMetadata()
   const { data: coinData } = data.coinloreCoinlore
-
+  const timeDifference = useTimeDifference()
   return (
     <Layout>
       <SEO
@@ -30,16 +31,22 @@ export default ({ data }) => {
         // siteLocale={siteLocale}
         twitterUsername={author}
       />
-      <Gallery>
-        {coinData.map(coin => (
-          <CryptoCard
-            id={coin.id}
-            symbol={coin.symbol}
-            name={coin.name}
-            price={coin.price_usd}
-          />
-        ))}
-      </Gallery>
+      <p>
+        {timeDifference > 10 ? (
+          'true'
+        ) : (
+          <Gallery>
+            {coinData.map(coin => (
+              <CryptoCard
+                id={coin.id}
+                symbol={coin.symbol}
+                name={coin.name}
+                price={coin.price_usd}
+              />
+            ))}
+          </Gallery>
+        )}
+      </p>
     </Layout>
   )
 }
