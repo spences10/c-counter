@@ -18,7 +18,15 @@ const Gallery = styled.div({
 })
 
 export default ({ data }) => {
-  const { title, description, author } = useSiteMetadata()
+  const {
+    title,
+    description,
+    author,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
   const { data: coinData } = data.coinloreCoinlore
 
   const timeDifference = useTimeDifference()
@@ -47,10 +55,10 @@ export default ({ data }) => {
       <SEO
         title={title}
         description={description || `nothin’`}
-        // image={image}
-        // pathname={siteUrl}
-        // siteLanguage={siteLanguage}
-        // siteLocale={siteLocale}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
         twitterUsername={author}
       />
 
