@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
+import { GlobalStyle } from '../style/globalStyle'
 import Header from './header'
-import './layout.css'
 
 export const Layout = ({ children }) => {
   const { title } = useSiteMetadata()
   return (
     <>
+      <GlobalStyle />
       <Header siteTitle={title} />
       <div
         style={{
