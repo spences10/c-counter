@@ -1,4 +1,6 @@
+import { differenceInMinutes } from 'date-fns'
 import React, { useEffect, useRef, useState } from 'react'
+import { useBuildDateTime } from '../hooks/useBuildDateTime'
 
 export const Timer = () => {
   const { time: bdt } = useBuildDateTime()
@@ -19,16 +21,23 @@ export const Timer = () => {
     return () => clearInterval(intervalRef.current)
   }, [])
 
-  const startTime = Date.now() - lapse
+  const startTime = lapse
 
   intervalRef.current = setInterval(() => {
     setLapse(Date.now() - startTime)
   }, 0)
 
+  const yo = differenceInMinutes(
+    // new Date(Date.now()),
+    // new Date(Date(bdt * 1000))
+    new Date(2014, 6, 2, 12, 20, 0),
+    new Date(2014, 6, 2, 12, 7, 59)
+  )
   return (
     <div>
-      <p>{time(lapse)}</p>
-      <p>{buildDateTime(bdt)}</p>
+      <p>{yo}</p>
+      <p>Time since: {time(lapse)}</p>
+      <p>Build time: {buildDateTime(bdt)}</p>
     </div>
   )
 }
