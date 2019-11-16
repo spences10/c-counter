@@ -2,9 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CardWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    'name  name  name  name '
+    'price price price price';
+
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-  padding: 1rem;
   &:hover {
     transform: translateY(-3px);
     transition: all 0.3s;
@@ -12,11 +18,33 @@ const CardWrapper = styled.div`
   }
 `
 
+const NameWrapper = styled.div`
+  position: relative;
+  grid-area: name;
+  background: #fafa;
+  border-radius: 10px 10px 0 0;
+  padding: 0.5rem;
+`
+
+const Symbol = styled.span`
+  position: absolute;
+  font-size: 1.5rem;
+  right: 0;
+  padding: 0.5rem;
+`
+
+const Name = styled.span`
+  font-size: 2rem;
+  font-weight: bold;
+`
+
 export const CryptoCard = ({ id, symbol, name, price }) => {
   return (
-    <CardWrapper key={id}>
-      <h2>{symbol}</h2>
-      <h3>{name}</h3>
+    <CardWrapper key={`${symbol}${id}`}>
+      <NameWrapper>
+        <Name>{name}</Name>
+        <Symbol>({symbol})</Symbol>
+      </NameWrapper>
       <h4>{price}</h4>
     </CardWrapper>
   )
