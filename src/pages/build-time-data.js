@@ -4,12 +4,24 @@ import { Layout } from '../components/layout'
 
 export default ({ data }) => {
   const { info, data: coinData } = data.coinloreCoinlore
+  const buildTimeDate = new Date(info.time * 1000)
+  const buildTime = new Date(info.time * 1000)
+    .toISOString()
+    .slice(11, -8)
+  const buildDate = new Date(info.time * 1000)
+    .toISOString()
+    .slice(0, -14)
   return (
     <Layout>
-      <p>Data as at: {new Date(info.time * 1000).toISOString()}</p>
+      <p>
+        Data as at: {buildDate} {buildTime}
+      </p>
       <p>Total Coins: {info.coins_num}</p>
       {coinData.map(coin => (
-        <div style={{ border: '1px solid black', marginTop: '2px' }}>
+        <div
+          key={coin.id}
+          style={{ border: '1px solid black', marginTop: '2px' }}
+        >
           <p>Symbol: {coin.symbol}</p>
           <p>Name: {coin.name}</p>
           <p>Price USD: {coin.price_usd}</p>
