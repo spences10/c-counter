@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-export const useBuildDateTime = () => {
+export const useCoinloreInfo = () => {
   const { coinloreCoinlore } = useStaticQuery(
     graphql`
       query CoinloreBuildDateTime {
