@@ -1,7 +1,6 @@
 import Dump from '@wesbos/dump'
 import React from 'react'
 import { Layout } from '../components/layout'
-import { Timer } from '../components/timer'
 
 export default ({ data }) => {
   const { info, data: coinData } = data.coinloreCoinlore
@@ -14,7 +13,6 @@ export default ({ data }) => {
     .slice(0, -14)
   return (
     <Layout>
-      <Timer />
       <p>
         Data as at: {buildDate} {buildTime}
       </p>

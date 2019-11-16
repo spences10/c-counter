@@ -2,7 +2,6 @@ import Dump from '@wesbos/dump'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Layout } from '../components/layout'
-import { Timer } from '../components/timer'
 
 export default () => {
   const [runTimeData, setRunTimeData] = useState({})
@@ -29,7 +28,6 @@ export default () => {
 
   return (
     <Layout>
-      <Timer />
       {/* <p>Data as at: {new Date(info.time * 1000).toISOString()}</p> */}
       {/* <p>Total Coins: {info.coins_num}</p> */}
       {runTimeData.map(coin => (
