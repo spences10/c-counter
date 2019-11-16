@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
 import { CryptoCard } from '../components/crypto-card'
@@ -19,7 +20,31 @@ const Gallery = styled.div({
 export default ({ data }) => {
   const { title, description, author } = useSiteMetadata()
   const { data: coinData } = data.coinloreCoinlore
+
   const timeDifference = useTimeDifference()
+
+  const [runTimeData, setRunTimeData] = useState({})
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function getRunTimeData() {
+      const res = await axios({
+        url: 'https://api.coinlore.com/api/tickers/',
+        method: 'post',
+      })
+      const { data } = res.data
+      setRunTimeData(data)
+      setLoading(false)
+    }
+    getRunTimeData()
+  }, [])
+  if (loading)
+    return (
+      <Layout>
+        <p>Loading...</p>
+      </Layout>
+    )
+
   return (
     <Layout>
       <SEO
@@ -33,7 +58,16 @@ export default ({ data }) => {
       />
       <p>
         {timeDifference > 10 ? (
-          'true'
+          <Gallery>
+            {runTimeData.map(coin => (
+              <CryptoCard
+                id={coin.id}
+                symbol={coin.symbol}
+                name={coin.name}
+                price={coin.price_usd}
+              />
+            ))}
+          </Gallery>
         ) : (
           <Gallery>
             {coinData.map(coin => (
