@@ -1,4 +1,3 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import SEO from 'react-seo-component'
 import { Layout } from '../components/layout'
@@ -17,12 +16,6 @@ export default () => {
         // siteLocale={siteLocale}
         twitterUsername={author}
       />
-      <h3>
-        <Link to="/build-time-data/">Build time Data Example</Link>
-      </h3>
-      <h3>
-        <Link to="/run-time-data/">Run time Data Example</Link>
-      </h3>
     </Layout>
   )
 }
