@@ -38,6 +38,11 @@ const Name = styled.span`
   font-weight: bold;
 `
 
+const Price = styled.span`
+  grid-area: price;
+  padding: 0.5rem;
+`
+
 export const CryptoCard = ({ id, symbol, name, price }) => {
   return (
     <CardWrapper key={`${symbol}${id}`}>
@@ -45,7 +50,7 @@ export const CryptoCard = ({ id, symbol, name, price }) => {
         <Name>{name}</Name>
         <Symbol>({symbol})</Symbol>
       </NameWrapper>
-      <h4>{price}</h4>
+      <Price>Price: ${price}</Price>
     </CardWrapper>
   )
 }
