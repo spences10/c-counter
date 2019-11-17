@@ -53,8 +53,23 @@ export const CryptoCard = ({ id, symbol, name, price }) => {
         <Symbol>({symbol})</Symbol>
       </NameWrapper>
       <Price>
+        <span
+          style={{
+            position: 'relative',
+            top: '-11px',
+            fontSize: '1.5rem',
+          }}
+        >
+          $
+        </span>
         {price.slice(0, price.indexOf('.'))}
-        <span style={{ fontSize: '1.5rem' }}>
+        <span
+          style={{
+            position: 'relative',
+            top: '-11px',
+            fontSize: '1.5rem',
+          }}
+        >
           {price.slice(price.indexOf('.'))}
         </span>
       </Price>
