@@ -41,6 +41,8 @@ const Name = styled.span`
 const Price = styled.span`
   grid-area: price;
   padding: 0.5rem;
+  font-family: 'Montserrat Alternates';
+  font-size: 2.5rem;
 `
 
 export const CryptoCard = ({ id, symbol, name, price }) => {
@@ -50,7 +52,12 @@ export const CryptoCard = ({ id, symbol, name, price }) => {
         <Name>{name}</Name>
         <Symbol>({symbol})</Symbol>
       </NameWrapper>
-      <Price>Price: ${price}</Price>
+      <Price>
+        {price.slice(0, price.indexOf('.'))}
+        <span style={{ fontSize: '1.5rem' }}>
+          {price.slice(price.indexOf('.'))}
+        </span>
+      </Price>
     </CardWrapper>
   )
 }
