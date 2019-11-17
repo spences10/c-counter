@@ -50,6 +50,16 @@ export default ({ data }) => {
       </Layout>
     )
 
+  let coinloreData = {}
+
+  if (timeDifference > 10) {
+    // use runtime data
+    coinloreData = runTimeData
+  } else {
+    // use build time data
+    coinloreData = coinData
+  }
+
   return (
     <Layout>
       <SEO
@@ -61,30 +71,16 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={author}
       />
-
-      {timeDifference > 10 ? (
-        <Gallery>
-          {runTimeData.map(coin => (
-            <CryptoCard
-              id={coin.id}
-              symbol={coin.symbol}
-              name={coin.name}
-              price={coin.price_usd}
-            />
-          ))}
-        </Gallery>
-      ) : (
-        <Gallery>
-          {coinData.map(coin => (
-            <CryptoCard
-              id={coin.id}
-              symbol={coin.symbol}
-              name={coin.name}
-              price={coin.price_usd}
-            />
-          ))}
-        </Gallery>
-      )}
+      <Gallery>
+        {coinloreData.map(coin => (
+          <CryptoCard
+            id={coin.id}
+            symbol={coin.symbol}
+            name={coin.name}
+            price={coin.price_usd}
+          />
+        ))}
+      </Gallery>
     </Layout>
   )
 }
