@@ -54,7 +54,7 @@ export default ({ data }) => {
     <Layout>
       <SEO
         title={title}
-        description={description || `nothin’`}
+        description={description}
         image={`${siteUrl}${image}`}
         pathname={siteUrl}
         siteLanguage={siteLanguage}
