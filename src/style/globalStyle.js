@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components'
 const fonts = () => {
   const list = [
     'Josefin+Slab:400,700|',
-    'Maitree:400,700|',
     'Montserrat+Alternates:400,700|',
     'Pontano+Sans:400,700|',
+    'Anonymous+Pro:400,700|',
   ]
   return list.join('')
 }
