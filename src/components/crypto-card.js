@@ -7,7 +7,8 @@ const CardWrapper = styled.div`
   grid-template-rows: auto;
   grid-template-areas:
     'name  name  name  name '
-    'price price price price';
+    'price price price price'
+    '. . . .';
 
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
@@ -41,11 +42,24 @@ const Name = styled.span`
 const Price = styled.span`
   grid-area: price;
   padding: 0.5rem;
-  font-family: 'Montserrat Alternates';
+  font-family: 'Anonymous Pro';
   font-size: 2.5rem;
+  span {
+    position: relative;
+    top: -11px;
+    font-size: 1.5rem;
+  }
 `
 
-export const CryptoCard = ({ id, symbol, name, price }) => {
+export const CryptoCard = ({
+  id,
+  symbol,
+  name,
+  price,
+  pcChange24h,
+  pcChange1h,
+  pcChange7d,
+}) => {
   return (
     <CardWrapper key={`${symbol}${id}`}>
       <NameWrapper>
@@ -53,26 +67,18 @@ export const CryptoCard = ({ id, symbol, name, price }) => {
         <Symbol>({symbol})</Symbol>
       </NameWrapper>
       <Price>
-        <span
-          style={{
-            position: 'relative',
-            top: '-11px',
-            fontSize: '1.5rem',
-          }}
-        >
-          $
-        </span>
+        <span>$</span>
         {price.slice(0, price.indexOf('.'))}
-        <span
-          style={{
-            position: 'relative',
-            top: '-11px',
-            fontSize: '1.5rem',
-          }}
-        >
-          {price.slice(price.indexOf('.'))}
-        </span>
+        <span>{price.slice(price.indexOf('.'))}</span>
       </Price>
+      <div style={{ padding: '0.5rem' }}>
+        <p>Percent Change 1hr</p>
+        <p>{pcChange1h}</p>
+        <p>Percent Change 24hr</p>
+        <p>{pcChange24h}</p>
+        <p>Percent Change 7d</p>
+        <p>{pcChange7d}</p>
+      </div>
     </CardWrapper>
   )
 }

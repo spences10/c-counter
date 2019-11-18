@@ -78,6 +78,9 @@ export default ({ data }) => {
             symbol={coin.symbol}
             name={coin.name}
             price={coin.price_usd}
+            pcChange1h={coin.percent_change_1h}
+            pcChange24h={coin.percent_change_24h}
+            pcChange7d={coin.percent_change_7d}
           />
         ))}
       </Gallery>
