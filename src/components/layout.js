@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import { GlobalStyle } from '../style/globalStyle'
 import Header from './header'
+
+const Footer = styled.footer`
+  margin-top: 3rem;
+`
 
 export const Layout = ({ children }) => {
   const { title } = useSiteMetadata()
@@ -19,11 +24,11 @@ export const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
+        <Footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        </Footer>
       </div>
     </>
   )
