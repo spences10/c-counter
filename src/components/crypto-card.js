@@ -22,7 +22,8 @@ const CardWrapper = styled.div`
 const NameWrapper = styled.div`
   position: relative;
   grid-area: name;
-  background: #fafa;
+  background: #663399;
+  color: #fff;
   border-radius: 10px 10px 0 0;
   padding: 0.5rem;
 `
