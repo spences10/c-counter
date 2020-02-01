@@ -26,5 +26,17 @@ module.exports = {
         icon: siteMetadata.favicon,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `josefin slab\:400,700`,
+          `montserrat alternates\:400,700`,
+          `pontano sans\:400,700`,
+          `anonymous pro\:400,700`,
+        ],
+        display: 'swap',
+      },
+    },
   ],
 }
