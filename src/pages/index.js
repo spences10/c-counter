@@ -63,7 +63,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={title}
+        title={`Crypto shizzle`}
+        titleTemplate={title}
         description={description}
         image={`${siteUrl}${image}`}
         pathname={siteUrl}
