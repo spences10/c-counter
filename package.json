@@ -2,7 +2,7 @@
   "name": "c-counter",
   "private": true,
   "description": "Crypto currency tickers",
-  "version": "0.2.66",
+  "version": "0.2.67",
   "author": "Scott Spence <yo@scottspence.dev>",
   "keywords": [
     "gatsby",
@@ -26,7 +26,7 @@
     "axios": "0.19.2",
     "babel-plugin-styled-components": "1.10.7",
     "date-fns": "2.10.0",
-    "gatsby": "2.19.27",
+    "gatsby": "2.19.28",
     "gatsby-node-helpers": "0.3.0",
     "gatsby-plugin-google-fonts": "1.0.1",
     "gatsby-plugin-manifest": "2.2.42",
