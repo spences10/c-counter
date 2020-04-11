@@ -2,7 +2,7 @@
   "name": "c-counter",
   "private": true,
   "description": "Crypto currency tickers",
-  "version": "0.2.115",
+  "version": "0.2.116",
   "author": "Scott Spence <yo@scottspence.dev>",
   "keywords": [
     "gatsby",
@@ -37,7 +37,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
-    "react-seo-component": "1.0.0",
+    "react-seo-component": "2.0.0",
     "styled-components": "5.1.0"
   },
   "devDependencies": {
