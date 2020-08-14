@@ -21,6 +21,14 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5",
+    "printWidth": 70,
+    "arrowParens": "avoid",
+    "proseWrap": "always"
+  },
   "dependencies": {
     "@wesbos/dump": "0.1.1",
     "axios": "0.19.2",
