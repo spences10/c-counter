@@ -2,7 +2,7 @@
   "name": "c-counter",
   "private": true,
   "description": "Crypto currency tickers",
-  "version": "0.2.71",
+  "version": "0.2.129",
   "author": "Scott Spence <yo@scottspence.dev>",
   "keywords": [
     "gatsby",
