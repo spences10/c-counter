@@ -31,19 +31,19 @@
   },
   "dependencies": {
     "@wesbos/dump": "0.1.1",
-    "axios": "0.20.0",
+    "axios": "0.21.0",
     "babel-plugin-styled-components": "1.11.1",
     "date-fns": "2.16.1",
-    "gatsby": "2.24.63",
+    "gatsby": "2.24.85",
     "gatsby-node-helpers": "0.3.0",
     "gatsby-plugin-google-fonts": "1.0.1",
-    "gatsby-plugin-manifest": "2.4.30",
-    "gatsby-plugin-offline": "3.2.28",
-    "gatsby-plugin-react-helmet": "3.3.11",
-    "gatsby-plugin-styled-components": "3.3.11",
+    "gatsby-plugin-manifest": "2.4.35",
+    "gatsby-plugin-offline": "3.2.37",
+    "gatsby-plugin-react-helmet": "3.3.14",
+    "gatsby-plugin-styled-components": "3.3.14",
     "prop-types": "15.7.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
     "react-seo-component": "2.0.2",
     "styled-components": "5.2.0"
@@ -51,7 +51,7 @@
   "devDependencies": {
     "husky": "4.3.0",
     "prettier": "2.1.2",
-    "pretty-quick": "3.0.2"
+    "pretty-quick": "3.1.0"
   },
   "repository": {
     "type": "git",
