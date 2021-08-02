@@ -2,7 +2,7 @@
   "name": "c-counter",
   "private": true,
   "description": "Crypto currency tickers",
-  "version": "0.2.129",
+  "version": "0.2.139",
   "author": "Scott Spence <yo@scottspence.dev>",
   "keywords": [
     "gatsby",
@@ -32,26 +32,26 @@
   "dependencies": {
     "@wesbos/dump": "0.1.1",
     "axios": "0.21.1",
-    "babel-plugin-styled-components": "1.11.1",
-    "date-fns": "2.16.1",
-    "gatsby": "2.24.85",
+    "babel-plugin-styled-components": "1.13.2",
+    "date-fns": "2.23.0",
+    "gatsby": "2.32.13",
     "gatsby-node-helpers": "0.3.0",
     "gatsby-plugin-google-fonts": "1.0.1",
-    "gatsby-plugin-manifest": "2.4.35",
-    "gatsby-plugin-offline": "3.2.37",
-    "gatsby-plugin-react-helmet": "3.3.14",
-    "gatsby-plugin-styled-components": "3.3.14",
+    "gatsby-plugin-manifest": "2.12.1",
+    "gatsby-plugin-offline": "3.10.2",
+    "gatsby-plugin-react-helmet": "3.10.0",
+    "gatsby-plugin-styled-components": "3.10.0",
     "prop-types": "15.7.2",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-seo-component": "2.0.2",
-    "styled-components": "5.2.0"
+    "styled-components": "5.3.0"
   },
   "devDependencies": {
-    "husky": "4.3.0",
-    "prettier": "2.1.2",
-    "pretty-quick": "3.1.0"
+    "husky": "7.0.1",
+    "prettier": "2.3.2",
+    "pretty-quick": "3.1.1"
   },
   "repository": {
     "type": "git",
