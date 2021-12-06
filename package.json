@@ -2,7 +2,7 @@
   "name": "c-counter",
   "private": true,
   "description": "Crypto currency tickers",
-  "version": "0.2.162",
+  "version": "0.2.163",
   "author": "Scott Spence <yo@scottspence.dev>",
   "keywords": [
     "gatsby",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "husky": "7.0.4",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "pretty-quick": "3.1.2"
   },
   "repository": {
