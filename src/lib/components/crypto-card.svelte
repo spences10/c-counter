@@ -9,14 +9,23 @@
     percent_change_24h,
     percent_change_7d,
   } = currency
+
+  let priceInteger = price_usd.split(`.`)[0]
+  let priceFractional = price_usd.split(`.`)[1]
 </script>
 
 <section class="card-wrapper">
   <div class="title">
     <p class="name">{name}</p>
-    <p>{symbol}</p>
+    <p>({symbol})</p>
   </div>
-  <p class="price">${price_usd}</p>
+  <p class="price">
+    <span class="currency">$</span><span class="price-integer"
+      >{priceInteger}</span
+    ><span class="price-fractional">
+      .{priceFractional}
+    </span>
+  </p>
   <div class="percentage-change">
     <p>Percent Change:</p>
     <p>1hr {percent_change_1h}</p>
@@ -32,6 +41,10 @@
     border-radius: 15px;
     padding: 20px;
   }
+  .card-wrapper:hover {
+    transition: all 0.3s ease 0s;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px;
+  }
   .title {
     display: flex;
     justify-content: space-between;
@@ -43,8 +56,18 @@
     margin: 0;
   }
   .price {
+    display: flex;
     font-size: 1.5rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
+  }
+  .currency {
+    font-size: 1rem;
+  }
+  .price-integer {
+    font-size: 2rem;
+  }
+  .price-fractional {
+    font-size: 1rem;
   }
 </style>
