@@ -17,6 +17,10 @@
   export let currencies
 </script>
 
+<svelte:head>
+  <title>C-Counter</title>
+</svelte:head>
+
 <main class="main-wrapper">
   {#each currencies as currency}
     <div class="card-wrapper">
