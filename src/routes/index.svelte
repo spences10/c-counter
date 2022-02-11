@@ -42,7 +42,7 @@
   .header-wrapper {
     margin: 0 auto;
     margin-bottom: 4rem;
-    padding:  1rem 0;
+    padding: 1rem 0;
     background: rebeccapurple;
   }
   .content-wrapper {
