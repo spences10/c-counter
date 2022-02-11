@@ -13,7 +13,7 @@
 
 <section class="card-wrapper">
   <div class="title">
-    <p>{name}</p>
+    <p class="name">{name}</p>
     <p>{symbol}</p>
   </div>
   <p class="price">${price_usd}</p>
@@ -28,5 +28,23 @@
 <style>
   .card-wrapper {
     margin-bottom: 20px;
+    border: 1px solid rebeccapurple;
+    border-radius: 15px;
+    padding: 20px;
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
   }
 </style>
