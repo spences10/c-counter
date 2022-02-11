@@ -21,6 +21,11 @@
   <title>C-Counter</title>
 </svelte:head>
 
+<header class="header-wrapper">
+  <div class="content-wrapper">
+    <p class="header-content">C-Counter</p>
+  </div>
+</header>
 <main class="main-wrapper">
   {#each currencies as currency}
     <div class="card-wrapper">
@@ -30,6 +35,28 @@
 </main>
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+  }
+  .header-wrapper {
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    padding:  1rem 0;
+    background: rebeccapurple;
+  }
+  .content-wrapper {
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 960px;
+  }
+  .header-content {
+    font-family: Satoshi-Black;
+    color: white;
+    font-size: 2.5rem;
+    padding-left: 20px;
+    margin: 0;
+  }
   .main-wrapper {
     font-family: Satoshi-Regular;
     display: flex;
@@ -38,15 +65,11 @@
     justify-content: center;
     margin: 0 auto;
     max-width: 960px;
-    padding: 0px 1.0875rem 1.45rem;
-    padding-top: 0;
   }
   .card-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1 0 230px;
     max-width: 300px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1rem;
   }
 </style>

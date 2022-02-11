@@ -27,10 +27,14 @@
     </span>
   </p>
   <div class="percentage-change">
-    <p>Percent Change:</p>
-    <p>1hr {percent_change_1h}</p>
-    <p>24hr {percent_change_24h}</p>
-    <p>7d {percent_change_7d}</p>
+    <div class="percentage-title">
+      <p>Percent Change:</p>
+    </div>
+    <div class="precentage-amounts">
+      <p>1hr {percent_change_1h}</p>
+      <p>24hr {percent_change_24h}</p>
+      <p>7d {percent_change_7d}</p>
+    </div>
   </div>
 </section>
 
@@ -49,6 +53,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
   }
   .name {
     font-size: 2.5rem;
@@ -60,6 +65,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
+    margin: 0;
   }
   .currency {
     font-size: 1rem;
@@ -69,5 +75,15 @@
   }
   .price-fractional {
     font-size: 1rem;
+  }
+  .percentage-change {
+    display: flex;
+  }
+  .percentage-title {
+    font-weight: 600;
+    width: 50%;
+  }
+  .precentage-amounts {
+    width: 50%;
   }
 </style>
