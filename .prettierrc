@@ -3,9 +3,16 @@
 	"singleQuote": true,
 	"trailingComma": "es5",
 	"printWidth": 70,
-	"semi": false,
 	"proseWrap": "always",
-	"plugins": ["prettier-plugin-svelte"],
-	"pluginSearchDirs": ["."],
-	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+	"plugins": [
+		"prettier-plugin-svelte"
+	],
+	"overrides": [
+		{
+			"files": "*.svelte",
+			"options": {
+				"parser": "svelte"
+			}
+		}
+	]
 }
