@@ -10,8 +10,8 @@
 
 	let { currency }: Props = $props();
 
-	// Use await to get real-time data for this specific currency
-	let show_details = $state(false);
+	// Modal state and refresh functionality
+	let show_modal = $state(false);
 	let refreshing = $state(false);
 
 	let {
@@ -143,101 +143,151 @@
 			></progress>
 		</div>
 
-		<!-- Action Buttons -->
-		<div class="mb-4 flex gap-2">
+		<!-- Action Button -->
+		<div class="flex justify-center">
 			<button
-				class="btn flex-1 btn-sm btn-primary"
-				onclick={() => (show_details = !show_details)}
+				class="btn btn-sm btn-primary"
+				onclick={() => (show_modal = true)}
 			>
 				<ChartIcon class_names="h-4 w-4" width="16px" height="16px" />
-				{show_details ? 'Hide' : 'Details'}
-			</button>
-
-			<button
-				class="btn btn-sm btn-secondary"
-				class:loading={refreshing}
-				onclick={refresh_currency}
-				disabled={refreshing}
-			>
-				{#if !refreshing}
-					<RefreshIcon
-						class_names="h-4 w-4"
-						width="16px"
-						height="16px"
-					/>
-				{/if}
-				Refresh
+				View Details
 			</button>
 		</div>
+	</div>
+</div>
 
-		<!-- Detailed Information -->
-		{#if show_details}
-			<div class="divider my-2"></div>
-			<div class="rounded-lg bg-base-200 p-4">
-				<svelte:boundary>
-					{#await get_currency(currency.id)}
-						<div class="flex justify-center py-4">
-							<span
-								class="loading loading-sm loading-spinner text-primary"
-							></span>
-						</div>
-					{:then detailedCurrency}
-						<div class="space-y-3">
-							<div class="flex items-center justify-between">
-								<span class="text-sm font-medium text-base-content/70"
-									>Market Cap</span
-								>
-								<span class="font-semibold">
+<!-- Modal -->
+{#if show_modal}
+	<div class="modal-open modal">
+		<div class="modal-box">
+			<div class="mb-4 flex items-center justify-between">
+				<h3 class="text-lg font-bold">{name} ({symbol}) Details</h3>
+				<button
+					class="btn btn-circle btn-ghost btn-sm"
+					onclick={() => (show_modal = false)}
+				>
+					✕
+				</button>
+			</div>
+
+			<div class="mb-4">
+				<div class="stat rounded-lg bg-base-200 p-4">
+					<div class="stat-title">Current Price</div>
+					<div class="stat-value text-primary">
+						${number_crunch(price_usd)}
+					</div>
+				</div>
+			</div>
+
+			<svelte:boundary>
+				{#await get_currency(currency.id)}
+					<div class="flex justify-center py-8">
+						<span
+							class="loading loading-lg loading-spinner text-primary"
+						></span>
+					</div>
+				{:then detailedCurrency}
+					<div class="space-y-4">
+						<div class="grid grid-cols-2 gap-4">
+							<div class="stat rounded-lg bg-base-200 p-4">
+								<div class="stat-title text-xs">Market Cap</div>
+								<div class="stat-value text-sm">
 									${number_crunch(
 										detailedCurrency.market_cap_usd || '0',
 									)}
-								</span>
+								</div>
 							</div>
-
-							<div class="flex items-center justify-between">
-								<span class="text-sm font-medium text-base-content/70"
-									>24h Volume</span
-								>
-								<span class="font-semibold">
+							<div class="stat rounded-lg bg-base-200 p-4">
+								<div class="stat-title text-xs">24h Volume</div>
+								<div class="stat-value text-sm">
 									${number_crunch(detailedCurrency.volume24 || '0')}
-								</span>
-							</div>
-
-							<div class="flex items-center justify-between">
-								<span class="text-sm font-medium text-base-content/70"
-									>Market Rank</span
-								>
-								<div class="badge badge-primary">
-									#{detailedCurrency.rank}
 								</div>
 							</div>
 						</div>
-					{:catch error}
-						<div class="alert alert-error">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="h-6 w-6 shrink-0 stroke-current"
-								fill="none"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-							<span class="text-sm">Failed to load details</span>
-						</div>
-					{/await}
 
-					{#snippet pending()}
-						<div class="flex justify-center py-4">
-							<span class="loading loading-sm loading-dots"></span>
+						<div class="grid grid-cols-2 gap-4">
+							<div class="stat rounded-lg bg-base-200 p-4">
+								<div class="stat-title text-xs">Market Rank</div>
+								<div class="stat-value text-sm">
+									#{detailedCurrency.rank}
+								</div>
+							</div>
+							<div class="stat rounded-lg bg-base-200 p-4">
+								<div class="stat-title text-xs">Price BTC</div>
+								<div class="stat-value text-sm">
+									{detailedCurrency.price_btc}
+								</div>
+							</div>
 						</div>
-					{/snippet}
-				</svelte:boundary>
+
+						<div class="grid grid-cols-3 gap-3">
+							<div class="stat rounded-lg bg-base-200 p-3">
+								<div class="stat-title text-xs">1h Change</div>
+								<div
+									class="stat-value text-sm {get_change_color(
+										detailedCurrency.percent_change_1h,
+									)}"
+								>
+									{detailedCurrency.percent_change_1h}%
+								</div>
+							</div>
+							<div class="stat rounded-lg bg-base-200 p-3">
+								<div class="stat-title text-xs">24h Change</div>
+								<div
+									class="stat-value text-sm {get_change_color(
+										detailedCurrency.percent_change_24h,
+									)}"
+								>
+									{detailedCurrency.percent_change_24h}%
+								</div>
+							</div>
+							<div class="stat rounded-lg bg-base-200 p-3">
+								<div class="stat-title text-xs">7d Change</div>
+								<div
+									class="stat-value text-sm {get_change_color(
+										detailedCurrency.percent_change_7d,
+									)}"
+								>
+									{detailedCurrency.percent_change_7d}%
+								</div>
+							</div>
+						</div>
+					</div>
+				{:catch error}
+					<div class="alert alert-error">
+						<span
+							>Failed to load detailed information: {error.message}</span
+						>
+					</div>
+				{/await}
+
+				{#snippet pending()}
+					<div class="flex justify-center py-8">
+						<span class="loading loading-lg loading-dots"></span>
+					</div>
+				{/snippet}
+			</svelte:boundary>
+
+			<div class="modal-action">
+				<button
+					class="btn btn-secondary"
+					class:loading={refreshing}
+					onclick={refresh_currency}
+					disabled={refreshing}
+				>
+					{#if !refreshing}
+						<RefreshIcon
+							class_names="h-4 w-4"
+							width="16px"
+							height="16px"
+						/>
+					{/if}
+					{refreshing ? 'Refreshing...' : 'Refresh Data'}
+				</button>
+				<button class="btn" onclick={() => (show_modal = false)}
+					>Close</button
+				>
 			</div>
-		{/if}
+		</div>
 	</div>
-</div>
+{/if}
