@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Card from '$lib/components/card.svelte';
 	import {
-		getCurrencies,
-		getMarketStats,
-		refreshData,
+		get_currencies,
+		get_market_stats,
+		refresh_data,
 	} from '$lib/crypto-data.remote';
 	import {
 		ChartIcon,
@@ -19,7 +19,7 @@
 	async function handle_refresh() {
 		refreshing = true;
 		try {
-			await refreshData();
+			await refresh_data();
 			refreshing = false;
 		} catch (error) {
 			console.error('Failed to refresh:', error);
@@ -66,7 +66,7 @@
 			<h2 class="mb-6 text-center text-3xl font-bold">
 				Global Market Stats
 			</h2>
-			{#await getMarketStats()}
+			{#await get_market_stats()}
 				<div class="flex justify-center">
 					<span
 						class="loading loading-lg loading-spinner text-primary"
@@ -174,7 +174,7 @@
 		<div
 			class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 		>
-			{#each await getCurrencies() as currency}
+			{#each await get_currencies() as currency}
 				<Card {currency} />
 			{/each}
 		</div>

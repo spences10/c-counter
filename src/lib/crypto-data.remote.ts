@@ -16,7 +16,7 @@ export interface Currency {
 }
 
 // Get all cryptocurrencies
-export const getCurrencies = query(async () => {
+export const get_currencies = query(async () => {
 	const response = await fetch(
 		'https://api.coinlore.com/api/tickers/',
 	);
@@ -25,7 +25,7 @@ export const getCurrencies = query(async () => {
 });
 
 // Get a specific cryptocurrency by ID
-export const getCurrency = query(v.string(), async (id: string) => {
+export const get_currency = query(v.string(), async (id: string) => {
 	const response = await fetch(
 		`https://api.coinlore.com/api/ticker/?id=${id}`,
 	);
@@ -34,7 +34,7 @@ export const getCurrency = query(v.string(), async (id: string) => {
 });
 
 // Get top cryptocurrencies with limit
-export const getTopCurrencies = query(
+export const get_top_currencies = query(
 	v.number(),
 	async (limit: number) => {
 		const response = await fetch(
@@ -46,14 +46,14 @@ export const getTopCurrencies = query(
 );
 
 // Refresh data command (for manual refresh)
-export const refreshData = command(async () => {
+export const refresh_data = command(async () => {
 	// Refresh the currencies query
-	await getCurrencies().refresh();
+	await get_currencies().refresh();
 	return { success: true, timestamp: new Date().toISOString() };
 });
 
 // Get market stats
-export const getMarketStats = query(async () => {
+export const get_market_stats = query(async () => {
 	const response = await fetch(
 		'https://api.coinlore.com/api/global/',
 	);

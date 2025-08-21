@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Currency } from '$lib/crypto-data.remote';
-	import { getCurrency } from '$lib/crypto-data.remote';
+	import { get_currency } from '$lib/crypto-data.remote';
 	import { ChartIcon, RefreshIcon } from '$lib/icons';
 	import { number_crunch } from '$lib/utils';
 
@@ -48,7 +48,7 @@
 	async function refresh_currency() {
 		refreshing = true;
 		try {
-			await getCurrency(currency.id).refresh();
+			await get_currency(currency.id).refresh();
 			refreshing = false;
 		} catch (error) {
 			console.error('Failed to refresh currency:', error);
@@ -175,7 +175,7 @@
 			<div class="divider my-2"></div>
 			<div class="rounded-lg bg-base-200 p-4">
 				<svelte:boundary>
-					{#await getCurrency(currency.id)}
+					{#await get_currency(currency.id)}
 						<div class="flex justify-center py-4">
 							<span
 								class="loading loading-sm loading-spinner text-primary"
