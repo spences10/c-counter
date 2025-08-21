@@ -1,13 +1,14 @@
 <script lang="ts">
 	import Card from '$lib/components/card.svelte';
 	import {
-		get_currencies,
 		get_market_stats,
 		refresh_data,
+		search_currencies,
 	} from '$lib/crypto-data.remote';
 	import {
 		ChartIcon,
 		InfoIcon,
+		SearchIcon,
 		SettingsIcon,
 		WalletIcon,
 	} from '$lib/icons';
@@ -15,6 +16,9 @@
 
 	// Using await expressions directly in the component
 	let refreshing = $state(false);
+	let search_term = $state('');
+
+	let search_results = $derived(search_currencies(search_term));
 
 	async function handle_refresh() {
 		refreshing = true;
@@ -35,14 +39,43 @@
 <svelte:boundary>
 	<!-- Hero Section -->
 	<div
-		class="hero min-h-[40vh] bg-gradient-to-br from-primary to-secondary"
+		class="hero min-h-[50vh] bg-gradient-to-br from-primary to-secondary"
 	>
 		<div class="hero-content text-center text-primary-content">
-			<div class="max-w-md">
+			<div class="max-w-2xl">
 				<h1 class="mb-5 text-5xl font-bold">C-Counter</h1>
 				<p class="mb-5 text-xl opacity-90">
 					Track cryptocurrency prices and market trends in real-time
 				</p>
+
+				<!-- Search Section in Hero -->
+				<div class="mb-6 flex flex-col items-center gap-4">
+					<label
+						class="input-bordered input input-lg flex w-full max-w-md items-center gap-2 bg-base-100"
+					>
+						<SearchIcon
+							class_names="h-5 w-5 opacity-70"
+							width="20px"
+							height="20px"
+						/>
+						<input
+							type="search"
+							class="grow text-base-content"
+							placeholder="Search cryptocurrencies..."
+							bind:value={search_term}
+						/>
+						{#if search_term}
+							<button
+								class="btn opacity-70 btn-ghost btn-xs hover:opacity-100"
+								onclick={() => (search_term = '')}
+								title="Clear search"
+							>
+								✕
+							</button>
+						{/if}
+					</label>
+				</div>
+
 				<div class="flex flex-wrap justify-center gap-2">
 					<button
 						class="btn btn-sm btn-accent"
@@ -171,13 +204,24 @@
 
 	<!-- Cryptocurrencies Grid -->
 	<div class="container mx-auto px-4 py-8">
-		<div
-			class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-		>
-			{#each await get_currencies() as currency}
-				<Card {currency} />
-			{/each}
-		</div>
+		<!-- Results Grid -->
+		{#await search_results}
+			<div class="flex justify-center">
+				<span class="loading loading-lg loading-spinner text-primary"></span>
+			</div>
+		{:then currencies}
+			<div
+				class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+			>
+				{#each currencies as currency}
+					<Card {currency} />
+				{/each}
+			</div>
+		{:catch error}
+			<div class="alert alert-error shadow-lg">
+				<span>Failed to load search results: {error.message}</span>
+			</div>
+		{/await}
 	</div>
 
 	{#snippet pending()}
