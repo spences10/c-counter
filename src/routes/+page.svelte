@@ -2,7 +2,6 @@
 	import Card from '$lib/components/card.svelte';
 	import {
 		get_market_stats,
-		refresh_data,
 		search_currencies,
 	} from '$lib/crypto-data.remote';
 	import { Chart, Info, Search, Settings, Wallet } from '$lib/icons';
@@ -17,7 +16,7 @@
 	async function handle_refresh() {
 		refreshing = true;
 		try {
-			await refresh_data();
+			await get_market_stats().refresh();
 			refreshing = false;
 		} catch (error) {
 			console.error('Failed to refresh:', error);
@@ -58,15 +57,6 @@
 							placeholder="Search cryptocurrencies..."
 							bind:value={search_term}
 						/>
-						{#if search_term}
-							<button
-								class="btn opacity-70 btn-ghost btn-xs hover:opacity-100"
-								onclick={() => (search_term = '')}
-								title="Clear search"
-							>
-								✕
-							</button>
-						{/if}
 					</label>
 				</div>
 

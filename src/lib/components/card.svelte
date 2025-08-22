@@ -10,9 +10,8 @@
 
 	let { currency }: Props = $props();
 
-	// Modal state and refresh functionality
+	// Modal state
 	let show_modal = $state(false);
-	let refreshing = $state(false);
 
 	let {
 		symbol,
@@ -45,15 +44,9 @@
 		return null;
 	}
 
-	async function refresh_currency() {
-		refreshing = true;
-		try {
-			await get_currency(currency.id).refresh();
-			refreshing = false;
-		} catch (error) {
-			console.error('Failed to refresh currency:', error);
-			refreshing = false;
-		}
+	function refresh_currency() {
+		// Simply call refresh() - it immediately updates the cached query
+		get_currency(currency.id).refresh();
 	}
 </script>
 
@@ -286,20 +279,9 @@
 			</svelte:boundary>
 
 			<div class="modal-action">
-				<button
-					class="btn btn-secondary"
-					class:loading={refreshing}
-					onclick={refresh_currency}
-					disabled={refreshing}
-				>
-					{#if !refreshing}
-						<Refresh
-							class_names="h-4 w-4"
-							width="16px"
-							height="16px"
-						/>
-					{/if}
-					{refreshing ? 'Refreshing...' : 'Refresh Data'}
+				<button class="btn btn-secondary" onclick={refresh_currency}>
+					<Refresh class_names="h-4 w-4" width="16px" height="16px" />
+					Refresh Data
 				</button>
 				<button class="btn" onclick={() => (show_modal = false)}
 					>Close</button

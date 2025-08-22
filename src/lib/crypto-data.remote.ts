@@ -1,4 +1,4 @@
-import { command, query } from '$app/server';
+import { query } from '$app/server';
 import * as v from 'valibot';
 
 // Type definitions
@@ -50,13 +50,6 @@ export const get_top_currencies = query(
 		return result.data as Currency[];
 	},
 );
-
-// Refresh data command (for manual refresh)
-export const refresh_data = command(async () => {
-	// Refresh the currencies query
-	await get_currencies().refresh();
-	return { success: true, timestamp: new Date().toISOString() };
-});
 
 // Search cryptocurrencies by name or symbol
 export const search_currencies = query(
