@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Currency } from '$lib/crypto-data.remote';
 	import { get_currency } from '$lib/crypto-data.remote';
-	import { ChartIcon, RefreshIcon } from '$lib/icons';
+	import { Chart, Refresh, TrendDown, TrendUp } from '$lib/icons';
 	import { number_crunch } from '$lib/utils';
 
 	interface Props {
@@ -38,11 +38,11 @@
 		return 'badge-neutral';
 	}
 
-	function get_change_icon(change: string) {
+	function get_change_icon_component(change: string) {
 		const value = parseFloat(change);
-		if (value > 0) return '📈';
-		if (value < 0) return '📉';
-		return '➡️';
+		if (value > 0) return TrendUp;
+		if (value < 0) return TrendDown;
+		return null;
 	}
 
 	async function refresh_currency() {
@@ -56,6 +56,20 @@
 		}
 	}
 </script>
+
+{#snippet change_display(change: string)}
+	{@const IconComponent = get_change_icon_component(change)}
+	{#if IconComponent}
+		<IconComponent
+			class_names="inline h-4 w-4"
+			width="16px"
+			height="16px"
+		/>
+	{:else}
+		➡️
+	{/if}
+	{change}%
+{/snippet}
 
 <div
 	class="card overflow-hidden border border-base-300 bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
@@ -90,8 +104,7 @@
 						percent_change_1h,
 					)}"
 				>
-					{get_change_icon(percent_change_1h)}
-					{percent_change_1h}%
+					{@render change_display(percent_change_1h)}
 				</div>
 			</div>
 
@@ -102,8 +115,7 @@
 						percent_change_24h,
 					)}"
 				>
-					{get_change_icon(percent_change_24h)}
-					{percent_change_24h}%
+					{@render change_display(percent_change_24h)}
 				</div>
 			</div>
 
@@ -114,8 +126,7 @@
 						percent_change_7d,
 					)}"
 				>
-					{get_change_icon(percent_change_7d)}
-					{percent_change_7d}%
+					{@render change_display(percent_change_7d)}
 				</div>
 			</div>
 		</div>
@@ -146,10 +157,10 @@
 		<!-- Action Button -->
 		<div class="flex justify-center">
 			<button
-				class="btn btn-sm btn-primary"
+				class="btn w-full btn-sm btn-primary"
 				onclick={() => (show_modal = true)}
 			>
-				<ChartIcon class_names="h-4 w-4" width="16px" height="16px" />
+				<Chart class_names="h-4 w-4" width="16px" height="16px" />
 				View Details
 			</button>
 		</div>
@@ -228,7 +239,9 @@
 										detailedCurrency.percent_change_1h,
 									)}"
 								>
-									{detailedCurrency.percent_change_1h}%
+									{@render change_display(
+										detailedCurrency.percent_change_1h,
+									)}
 								</div>
 							</div>
 							<div class="stat rounded-lg bg-base-200 p-3">
@@ -238,7 +251,9 @@
 										detailedCurrency.percent_change_24h,
 									)}"
 								>
-									{detailedCurrency.percent_change_24h}%
+									{@render change_display(
+										detailedCurrency.percent_change_24h,
+									)}
 								</div>
 							</div>
 							<div class="stat rounded-lg bg-base-200 p-3">
@@ -248,7 +263,9 @@
 										detailedCurrency.percent_change_7d,
 									)}"
 								>
-									{detailedCurrency.percent_change_7d}%
+									{@render change_display(
+										detailedCurrency.percent_change_7d,
+									)}
 								</div>
 							</div>
 						</div>
@@ -276,7 +293,7 @@
 					disabled={refreshing}
 				>
 					{#if !refreshing}
-						<RefreshIcon
+						<Refresh
 							class_names="h-4 w-4"
 							width="16px"
 							height="16px"

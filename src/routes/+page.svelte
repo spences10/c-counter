@@ -5,14 +5,8 @@
 		refresh_data,
 		search_currencies,
 	} from '$lib/crypto-data.remote';
-	import {
-		ChartIcon,
-		InfoIcon,
-		SearchIcon,
-		SettingsIcon,
-		WalletIcon,
-	} from '$lib/icons';
-	import { format_currency } from '$lib/utils';
+	import { Chart, Info, Search, Settings, Wallet } from '$lib/icons';
+	import { format_currency, number_crunch } from '$lib/utils';
 
 	// Using await expressions directly in the component
 	let refreshing = $state(false);
@@ -53,7 +47,7 @@
 					<label
 						class="input-bordered input input-lg flex w-full max-w-md items-center gap-2 bg-base-100"
 					>
-						<SearchIcon
+						<Search
 							class_names="h-5 w-5 opacity-70"
 							width="20px"
 							height="20px"
@@ -113,7 +107,7 @@
 						class="stat rounded-2xl bg-base-100 p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
 					>
 						<div class="stat-figure text-primary">
-							<InfoIcon
+							<Info
 								class_names="inline-block h-8 w-8 stroke-current"
 								width="32px"
 								height="32px"
@@ -131,7 +125,7 @@
 						class="stat rounded-2xl bg-base-100 p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
 					>
 						<div class="stat-figure text-secondary">
-							<SettingsIcon
+							<Settings
 								class_names="inline-block h-8 w-8 stroke-current"
 								width="32px"
 								height="32px"
@@ -149,7 +143,7 @@
 						class="stat rounded-2xl bg-base-100 p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
 					>
 						<div class="stat-figure text-accent">
-							<WalletIcon
+							<Wallet
 								class_names="inline-block h-8 w-8 stroke-current"
 								width="32px"
 								height="32px"
@@ -167,7 +161,7 @@
 						class="stat rounded-2xl bg-base-100 p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
 					>
 						<div class="stat-figure text-info">
-							<ChartIcon
+							<Chart
 								class_names="inline-block h-8 w-8 stroke-current"
 								width="32px"
 								height="32px"
@@ -177,7 +171,7 @@
 							Active Cryptocurrencies
 						</div>
 						<div class="stat-value text-xl text-info">
-							{stats.active_cryptocurrencies}
+							{number_crunch(stats.coins_count)}
 						</div>
 					</div>
 				</div>
@@ -207,7 +201,8 @@
 		<!-- Results Grid -->
 		{#await search_results}
 			<div class="flex justify-center">
-				<span class="loading loading-lg loading-spinner text-primary"></span>
+				<span class="loading loading-lg loading-spinner text-primary"
+				></span>
 			</div>
 		{:then currencies}
 			<div
