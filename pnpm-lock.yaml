@@ -40,7 +40,7 @@ importers:
         version: 3.2.4(playwright@1.56.1)(vite@7.1.12(jiti@2.6.1)(lightningcss@1.30.2))(vitest@3.2.4)
       daisyui:
         specifier: ^5.3.10
-        version: 5.5.4
+        version: 5.5.5
       eslint:
         specifier: ^9.38.0
         version: 9.39.1(jiti@2.6.1)
@@ -850,8 +850,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  daisyui@5.5.4:
-    resolution: {integrity: sha512-opuf6YHsGxOqWtPXEHFCGDC0HxNIYW6DgXB9GRNfFJL4garzEoHCEWqcuvMTjFK2Al2aHgHYFrpqLxd5x2qopQ==}
+  daisyui@5.5.5:
+    resolution: {integrity: sha512-ekvI93ZkWIJoCOtDl0D2QMxnWvTejk9V5nWBqRv+7t0xjiBXqAK5U6o6JE2RPvlIC3EqwNyUoIZSdHX9MZK3nw==}
 
   debug@4.4.1:
     resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
@@ -2396,7 +2396,7 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  daisyui@5.5.4: {}
+  daisyui@5.5.5: {}
 
   debug@4.4.1:
     dependencies:
