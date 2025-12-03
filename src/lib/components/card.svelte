@@ -13,14 +13,12 @@
 	// Modal state
 	let show_modal = $state(false);
 
-	let {
-		symbol,
-		name,
-		price_usd,
-		percent_change_1h,
-		percent_change_24h,
-		percent_change_7d,
-	} = currency;
+	let symbol = $derived(currency.symbol);
+	let name = $derived(currency.name);
+	let price_usd = $derived(currency.price_usd);
+	let percent_change_1h = $derived(currency.percent_change_1h);
+	let percent_change_24h = $derived(currency.percent_change_24h);
+	let percent_change_7d = $derived(currency.percent_change_7d);
 
 	// Function to get color class based on percentage change
 	function get_change_color(change: string) {
