@@ -16,7 +16,7 @@ importers:
         version: 10.0.1(eslint@10.1.0(jiti@2.6.1))
       '@playwright/test':
         specifier: ^1.57.0
-        version: 1.58.2
+        version: 1.59.0
       '@sveltejs/adapter-auto':
         specifier: ^7.0.0
         version: 7.0.1(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@7.0.0(svelte@5.54.0)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1)))(svelte@5.54.0)(typescript@6.0.2)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1)))
@@ -37,7 +37,7 @@ importers:
         version: 4.2.2(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))
       '@vitest/browser-playwright':
         specifier: ^4.0.15
-        version: 4.1.2(playwright@1.58.2)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)
+        version: 4.1.2(playwright@1.59.0)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)
       daisyui:
         specifier: ^5.5.13
         version: 5.5.19
@@ -55,7 +55,7 @@ importers:
         version: 17.4.0
       playwright:
         specifier: ^1.57.0
-        version: 1.58.2
+        version: 1.59.0
       prettier:
         specifier: ^3.7.4
         version: 3.8.1
@@ -352,8 +352,8 @@ packages:
   '@oxc-project/types@0.122.0':
     resolution: {integrity: sha512-oLAl5kBpV4w69UtFZ9xqcmTi+GENWOcPF7FCrczTiBbmC0ibXxCwyvZGbO39rCVEuLGAZM84DH0pUIyyv/YJzA==}
 
-  '@playwright/test@1.58.2':
-    resolution: {integrity: sha512-akea+6bHYBBfA9uQqSYmlJXn61cTa+jbO87xVLCWbTqbWadRVmhxlXATaOjOgcBaWU4ePo0wB41KMFv3o35IXA==}
+  '@playwright/test@1.59.0':
+    resolution: {integrity: sha512-TOA5sTLd49rTDaZpYpvCQ9hGefHQq/OYOyCVnGqS2mjMfX+lGZv2iddIJd0I48cfxqSPttS9S3OuLKyylHcO1w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1180,13 +1180,13 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  playwright-core@1.58.2:
-    resolution: {integrity: sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==}
+  playwright-core@1.59.0:
+    resolution: {integrity: sha512-PW/X/IoZ6BMUUy8rpwHEZ8Kc0IiLIkgKYGNFaMs5KmQhcfLILNx9yCQD0rnWeWfz1PNeqcFP1BsihQhDOBCwZw==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.58.2:
-    resolution: {integrity: sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==}
+  playwright@1.59.0:
+    resolution: {integrity: sha512-wihGScriusvATUxmhfENxg0tj1vHEFeIwxlnPFKQTOQVd7aG08mUfvvniRP/PtQOC+2Bs52kBOC/Up1jTXeIbw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1742,9 +1742,9 @@ snapshots:
 
   '@oxc-project/types@0.122.0': {}
 
-  '@playwright/test@1.58.2':
+  '@playwright/test@1.59.0':
     dependencies:
-      playwright: 1.58.2
+      playwright: 1.59.0
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -2036,11 +2036,11 @@ snapshots:
       '@typescript-eslint/types': 8.58.0
       eslint-visitor-keys: 5.0.1
 
-  '@vitest/browser-playwright@4.1.2(playwright@1.58.2)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)':
+  '@vitest/browser-playwright@4.1.2(playwright@1.59.0)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)':
     dependencies:
       '@vitest/browser': 4.1.2(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)
       '@vitest/mocker': 4.1.2(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))
-      playwright: 1.58.2
+      playwright: 1.59.0
       tinyrainbow: 3.1.0
       vitest: 4.1.2(@vitest/browser-playwright@4.1.2)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))
     transitivePeerDependencies:
@@ -2510,11 +2510,11 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  playwright-core@1.58.2: {}
+  playwright-core@1.59.0: {}
 
-  playwright@1.58.2:
+  playwright@1.59.0:
     dependencies:
-      playwright-core: 1.58.2
+      playwright-core: 1.59.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -2737,7 +2737,7 @@ snapshots:
 
   vitest-browser-svelte@2.1.0(svelte@5.54.0)(vitest@4.1.2):
     dependencies:
-      '@playwright/test': 1.58.2
+      '@playwright/test': 1.59.0
       '@testing-library/svelte-core': 1.0.0(svelte@5.54.0)
       svelte: 5.54.0
       vitest: 4.1.2(@vitest/browser-playwright@4.1.2)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))
@@ -2765,7 +2765,7 @@ snapshots:
       vite: 8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@vitest/browser-playwright': 4.1.2(playwright@1.58.2)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)
+      '@vitest/browser-playwright': 4.1.2(playwright@1.59.0)(vite@8.0.3(@emnapi/core@1.9.0)(@emnapi/runtime@1.9.0)(esbuild@0.27.2)(jiti@2.6.1))(vitest@4.1.2)
     transitivePeerDependencies:
       - msw
 
